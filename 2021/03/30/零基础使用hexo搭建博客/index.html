@@ -1,0 +1,549 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Baikal &amp; Swan">
+  <meta name="keywords" content="">
+  
+  <title>lijinhao</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Fluid</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-30 01:54" pubdate>
+        March 30, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      730 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      8
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <hr>
+<h2 id="title-零基础使用hexo搭建博客"><a href="#title-零基础使用hexo搭建博客" class="headerlink" title="title: 零基础使用hexo搭建博客   "></a>title: 零基础使用hexo搭建博客   </h2><ol>
+<li>使用hexo搭建个人博客需要以下环境：  </li>
+</ol>
+<ul>
+<li><p>nodejs 点击下载：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
+<ul>
+<li>验证安装是否成功：    </li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ae05.alicdn.com/kf/Hb0e167339fb748bb92f58b58393309cc1.png" srcset="/img/loading.gif" lazyload alt="image1.png"></p>
+<ul>
+<li>由于npm使用国外源，各类资源安装较慢，所以使用npm安装cnpm并使用国内源：<br><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+</ul>
+<p><img src="https://ae03.alicdn.com/kf/Hed9b52ce82b24485b6fd7a33aadb18cdj.png" srcset="/img/loading.gif" lazyload alt="image2.png"></p>
+<ol start="2">
+<li>新建空文件夹<strong>blog</strong>并<strong>使用hexo将其初始化</strong><br><code>mkdir blog</code>  </li>
+</ol>
+<ul>
+<li>切换到blog目录下使用hexo初始化:<br><code>cd blog/</code><br><code>sudo hexo init</code></li>
+</ul>
+<p><img src="https://ae05.alicdn.com/kf/Hfd6e4ca5227845d8b3946f129e3f381cB.png" srcset="/img/loading.gif" lazyload alt="image3.png"></p>
+<ul>
+<li>查看blog目录下的文件可以看到hexo已经完成初始化：</li>
+</ul>
+<p><img src="https://ae02.alicdn.com/kf/H884b2ff828d14999bccc4c2f5387a613K.png" srcset="/img/loading.gif" lazyload alt="image4.png"></p>
+<ol start="3">
+<li>在本地启动hexo博客<br><code>sudo hexo s</code> 或  <code>sudo hexo server</code></li>
+</ol>
+<p><img src="https://ae02.alicdn.com/kf/Hf3efc0504f314a1b9c92f292d55d0957v.png" srcset="/img/loading.gif" lazyload alt="image5.png"></p>
+<ul>
+<li><p>博客部署在<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>  </p>
+</li>
+<li><p>后期可以先发布文章在本地作为草稿，确定没有问题后再发布在服务器上  </p>
+</li>
+</ul>
+<p>⚠️注意，若出现了端口已被占用的情况，可以使用以下命令组合解除占用：<br>    - 方法一：<br><code>sudo lsof -i:port</code><br><code>sudo kill -9 PID</code><br>如：<br><a target="_blank" rel="noopener" href="https://ae02.alicdn.com/kf/H618fe1610f3144e19fc427515255135fI.png"><img src="https://ae02.alicdn.com/kf/H618fe1610f3144e19fc427515255135fI.png" srcset="/img/loading.gif" lazyload alt="image6.png"></a><br>    - 方法二：<br>        - 更换默认端口<br><code>hexo s -p 5000</code></p>
+<ol start="4">
+<li>编写第一篇博客<br><code>hexo new “FileName”</code><br>如：<br><code>hexo new 零基础使用hexo搭建博客</code></li>
+</ol>
+<ul>
+<li>使用ls查看创建结果：<br><code>cd source/_posts</code><br><code>ls -l</code>  </li>
+</ul>
+<p><img src="https://ae05.alicdn.com/kf/Hc21ad29e72da49979ae876ccf8aee939h.png" srcset="/img/loading.gif" lazyload alt="image7.png"></p>
+<p>⚠️注意，新建的md格式的文件可能出现权限不足无法编辑的问题，解决方法如下：<br>分别选择上层目录<code>_post</code>和新建的文件使用<code>command + i</code>命令：<br><img src="https://ae01.alicdn.com/kf/Hde8a82bdfdbb4c919af85e154478ac1b8.png" srcset="/img/loading.gif" lazyload alt="image.png"><br>解除右下角🔒后，将everyone修改为读与写即可</p>
+<ol start="5">
+<li>发布文章  </li>
+</ol>
+<ul>
+<li>在blog目录下使用命令：<br><code>hexo generate</code>  </li>
+</ul>
+<p><img src="https://ae01.alicdn.com/kf/H42dd3a3ce0ef4a50bbab46621e731a76l.png" srcset="/img/loading.gif" lazyload alt="image8.png"></p>
+<p>点击<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可查看发布结果:</p>
+<p><img src="https://ae02.alicdn.com/kf/Hcda77cee362c4c76b8d2d758d6e9efea9.png" srcset="/img/loading.gif" lazyload alt="image9.png"></p>
+<ol start="6">
+<li>部署博客到云服务器<br>借助github部署博客是完全免费的<ul>
+<li>打开github新建一个repository<br>注意repository name必须是以下格式：</li>
+<li>用户名.github.io<br>之后浏览器在地址栏输入以上内容就可以访问博客：</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://ae03.alicdn.com/kf/Hc0166a94d8d946b583fbc33454acfd62I.png" srcset="/img/loading.gif" lazyload alt="image10.png"></p>
+<p>回到命令行在blog目录下安装一个git工具：  </p>
+<p><code>cnpm install --save hexo-deployer-git</code></p>
+<p><img src="https://ae03.alicdn.com/kf/H842b0eef2a9142a69aba695b16c93e19h.png" srcset="/img/loading.gif" lazyload alt="image11.png"></p>
+<p>⚠️以下内容非常重要：</p>
+<ul>
+<li>配置_config.yml文件</li>
+</ul>
+<p><img src="https://ae05.alicdn.com/kf/H084d43c2cc4648819b6ae9671cc925613.png" srcset="/img/loading.gif" lazyload alt="image12.png"></p>
+<p>使用命令<code>vim _config.yml</code>  拖到最下方，修改以下内容：  </p>
+<p>修改前：  </p>
+<p><img src="https://ae01.alicdn.com/kf/H79a2b2ddd0d7437fbaa58410dc7fe9d2y.png" srcset="/img/loading.gif" lazyload alt="image13.png"><br>修改后：</p>
+<p><img src="https://ae02.alicdn.com/kf/H31e7e3a92a434a50a5f100cf607277feh.png" srcset="/img/loading.gif" lazyload alt="image14.png"></p>
+<p>其中repo链接来自刚刚新创建的仓库：<br><img src="https://ae02.alicdn.com/kf/Hee9be8c89e66456b8cb2f9135bc5d9c2e.png" srcset="/img/loading.gif" lazyload alt="image15.png"></p>
+<p>保存后退出</p>
+<ul>
+<li>在blog目录下使用以下命令：  </li>
+</ul>
+<p><code>hexo d</code> 或 <code>hexo deployer</code></p>
+<p><img src="https://ae05.alicdn.com/kf/H8e755a4e7fbf45d789ba784cab9eceecy.png" srcset="/img/loading.gif" lazyload alt="image16.png"></p>
+<p>初次使用可能需要输入github的账号与密码，正确输入即可</p>
+<ol start="7">
+<li>查看博客  </li>
+</ol>
+<ul>
+<li>在github上我们可以看到博客的配置及代码已经提交成功</li>
+</ul>
+<p><img src="https://ae04.alicdn.com/kf/Hb9ac50cb58e742f79a054a67be44cffcp.png" srcset="/img/loading.gif" lazyload alt="image17.png"></p>
+<ul>
+<li>在浏览器地址栏使用<code>用户名.github.io</code>访问博客<br>如：<br><a target="_blank" rel="noopener" href="https://leekinghou.github.io/">leekinghou.github.io</a></li>
+</ul>
+<p><img src="https://ae02.alicdn.com/kf/H3c85b5e7a19240adb77ada9a71fc9af0v.png" srcset="/img/loading.gif" lazyload alt="image18.png"></p>
+<ol start="8">
+<li>更换主题  </li>
+</ol>
+<ul>
+<li>使用<code>git clone</code>将主题克隆到blog下的themes目录<br>如：<br><code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code></li>
+</ul>
+<p><img src="https://ae05.alicdn.com/kf/H4a119a5dcbef40639e8d892d8b16caaby.png" srcset="/img/loading.gif" lazyload alt="image19.png"></p>
+<ul>
+<li>进入themes目录可以查看到已经下载了主题文件  </li>
+</ul>
+<p><img src="https://ae03.alicdn.com/kf/H47be0afe250f498f871f945e81d581a2B.png" srcset="/img/loading.gif" lazyload alt="image20.png"></p>
+<ul>
+<li>返回<code>blog</code>目录，再次修改<code>_config.yml</code>文件</li>
+</ul>
+<p>修改前：</p>
+<p><img src="https://ae04.alicdn.com/kf/H077713313fd240b6921e042aeb38d7afu.png" srcset="/img/loading.gif" lazyload alt="image21.png"></p>
+<p>修改后：</p>
+<p><img src="https://ae01.alicdn.com/kf/Hf4f4178dfd494cbab20aae99a32edd7cD.png" srcset="/img/loading.gif" lazyload alt="image22.png"></p>
+<p>通过命令<code>hexo d</code>将新配置推送到服务器端即可</p>
+<p><img src="https://ae04.alicdn.com/kf/H18fa13d95708455695a785494f579678x.png" srcset="/img/loading.gif" lazyload alt="image23.png"></p>
+<ol start="9">
+<li>最后   </li>
+</ol>
+<p>有其他问题优先查看官方解决方案：<br><a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">https://hexo.io/docs/troubleshooting.html</a></p>
+<p>欢迎关注我的博客!<br><a target="_blank" rel="noopener" href="https://leekinghou.github.io/">https://leekinghou.github.io</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/30/hello-world/">
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
