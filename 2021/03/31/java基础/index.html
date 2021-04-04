@@ -7,7 +7,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://inews.gtimg.com/newsapp_ls/0/13372468765/0">
   <link rel="icon" href="https://inews.gtimg.com/newsapp_ls/0/13372468765/0">
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      2.5k 字
+      3.2k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      31
+      39
        分钟
     </span>
   
@@ -445,7 +445,8 @@
 <p><code>多用组合，少用继承</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SoccerPlayer</span> </span>&#123;<br>	<span class="hljs-keyword">private</span> String name;<br>	<span class="hljs-keyword">private</span> Soccer soccer;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Soccer</span> </span>&#123;<br>	<span class="hljs-keyword">private</span> String soccerName;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<p>组合与继承的区别<br><img src="https://inews.gtimg.com/newsapp_ls/0/13372786948/0" srcset="/img/loading.gif" lazyload alt="组合与继承的区别"></p>
+<p>组合与继承的区别  </p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13372786948/0" srcset="/img/loading.gif" lazyload alt="组合与继承的区别"></p>
 <ol start="11">
 <li>代理</li>
 </ol>
@@ -479,6 +480,46 @@
 </ul>
 </li>
 </ul>
+<ol start="14">
+<li>接口和抽象类</li>
+</ol>
+<ul>
+<li>接口（interface）</li>
+</ul>
+<p>接口相当于对外的约定和标准，操作系统产生的目的之一就是为了屏蔽软件的复杂性和硬件的简单性之间的差异，为软件提供统一的标准。</p>
+<p>用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Apple</span></span>&#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>接口的一些特性：   </p>
+<ul>
+<li>接口不能被实例化，所以接口中不能有任何构造方法，你定义构造方法编译会出错。</li>
+<li>interface接口是一个完全抽象的类，没有实现任何方法，只是定义了方法。</li>
+<li>接口中只能使用两种访问修饰符：public-对整个项目可见，default-只有包访问权限</li>
+<li>只提供方法的定义，不实现方法，需要其他类<code>implements</code>后自己实现</li>
+<li>接口的实现必须实现接口的全部方法，否则必须定义为<code>抽象类</code></li>
+<li>一个借口可以被不同的类实现</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Write</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">GoodJob</span></span>&#123;<br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">write</span><span class="hljs-params">()</span></span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;write write write&quot;</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>抽象类</li>
+</ul>
+<p>抽象类是一种抽象能力弱于接口的类，关键词是<code>abstract</code>，如果接口是狗这个物种，抽象类可以说毛发是白色、狗的品种，而实现类可以是具体的类，比如是博美、拿破仑等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Dog</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FurColor</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WhiteDog</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Dog</span></span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">FurColor</span><span class="hljs-params">()</span></span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;Fur is white&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SmallBody</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在抽象类中</p>
+<ul>
+<li>如果一个类中有抽象方法，那么这个类一定是抽象类，也就是说，使用关键字<code>abstract</code>修饰的方法一定是抽象方法，具有抽象方法的类一定是抽象类</li>
+<li>实现类方法中只有方法具体的实现</li>
+<li>抽象类中不一定只有抽象方法，抽象类中也可以有具体的方法，你可以自己去选择是否实现这些方法</li>
+<li>抽象类中的约束不像接口那么严格，你可以在抽象类中定义<code>构造方法、抽象方法、普通属性、方法、静态属性和静态方法</code></li>
+<li>抽象类和接口一样不能被实例化，实例化只能实例化具体的类</li>
+</ul>
+<ol start="15">
+<li>异常<br>异常是程序经常会出现的，发现错误的最佳时机是在编译阶段，也就是你试图在运行程序之前。但是，在编译期间并不能找到所有的错误：</li>
+</ol>
+<p><code> NullPointelrException和ClassNotFoundException 异常</code></p>
+<p>在编译期找不到，这些异常是RuntimeException运行时异常，这些异常往往在运行时才能被发现。</p>
+<p>Java程序经常会出现两种问题，<code>java.lang.Exception和java.lang.Error</code>都用来表示出现了异常情况：</p>
 
             </div>
             <hr>
