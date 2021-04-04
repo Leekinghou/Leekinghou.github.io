@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      1.6k 字
+      2.5k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      20
+      31
        分钟
     </span>
   
@@ -419,6 +419,66 @@
 <ol start="8">
 <li>继承</li>
 </ol>
+<ul>
+<li><p>继承的关键字是<code>extends</code>  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Son</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Father</span></span>&#123;<br><br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>如果 Son 没有实现自己的方法的话，那么默认就是用的是父类的 feature 方法。如果子类实现了自己的 feature 方法，那么就相当于是重写了父类的 feature 方法，这也是我们上面提到的<code>重写</code>了</p>
+</li>
+</ul>
+<ol start="9">
+<li>多态<br>步骤：</li>
+</ol>
+<ul>
+<li>继承</li>
+<li>重写父类方法</li>
+<li>父类引用指向子类对象</li>
+</ul>
+<p>继承、重写</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fruit</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> num;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span></span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;eat Fruit&quot;</span>);<br><br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Apple</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fruit</span></span>&#123;<br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-keyword">super</span>.num=<span class="hljs-number">10</span>;<br>		System . out . println ( <span class="hljs-string">&quot; eat &quot;</span> + num + <span class="hljs-string">&quot; Apple &quot;</span> ) ;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>父类引用指向子类对象</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>	Fruit fruit = <span class="hljs-keyword">new</span> Apple();<br>	fruit.eat()<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>可以发现 main 方法中有一个很神奇的地方，<code>Fruit fruit = new Apple()</code>,Fruit类型的对象竟然指向了Apple对象的引用，这其实就是多态-&gt;父类引用指向子类对象，因为Apple继承于Fruit,并且重写了eat方法，所以能够表现出来多种状态的形式。</p>
+<ol start="10">
+<li>组合</li>
+</ol>
+<p>组合其实不难理解，就是将对象引用置于新类中即可。组合也是一种提高类的复用性的一种方式。如果<br>想让类具有更多的扩展功能，只需要记住一句话  </p>
+<p><code>多用组合，少用继承</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SoccerPlayer</span> </span>&#123;<br>	<span class="hljs-keyword">private</span> String name;<br>	<span class="hljs-keyword">private</span> Soccer soccer;<br>&#125;<br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Soccer</span> </span>&#123;<br>	<span class="hljs-keyword">private</span> String soccerName;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>组合与继承的区别<br><img src="https://inews.gtimg.com/newsapp_ls/0/13372786948/0" srcset="/img/loading.gif" lazyload alt="组合与继承的区别"></p>
+<ol start="11">
+<li>代理</li>
+</ol>
+<ul>
+<li>代理的大致描述是，A想要调用B类的方法：<ol>
+<li>A不直接调用</li>
+<li>A会在自己的类中创建一个B对象的代理</li>
+<li>再由代理调用B的方法</li>
+</ol>
+</li>
+</ul>
+<p>例如如下代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Destination</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">todo</span><span class="hljs-params">()</span></span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;control...&quot;</span>);<br>	&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Device</span> </span>&#123;<br>	<span class="hljs-keyword">private</span> String name;<br>	<span class="hljs-keyword">private</span> Destination destination;<br>	<span class="hljs-keyword">private</span> DeviceController deviceController;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">control</span><span class="hljs-params">(Destination destination)</span></span>&#123;<br>		destination.todo();<br>	&#125;<br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DeviceController</span> </span>&#123;<br>	<span class="hljs-keyword">private</span> Device name;<br>	<span class="hljs-keyword">private</span> Destination destination;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">control</span><span class="hljs-params">(Destination destination)</span></span>&#123;<br>		destination.todo();<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="12">
+<li>static<br>用在没有创建对象时调用方法/变量<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> String name = <span class="hljs-string">&quot;hellworld&quot;</span><br></code></pre></td></tr></table></figure>
+使用static修饰的方法称为静态方法，静态方法能够直接使用<code>类名.方法名</code>进行调用。由于静态方法<code>不依赖于任何对象</code>就可以直接访问，因此对于静态方法来说，是没有this关键字的，实例变量都会有this关键字。在静态方法中不能访问类的非静态成员变量和非静态方法。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printMessage</span><span class="hljs-params">()</span></span>&#123;<br>	System.out.println(<span class="hljs-string">&quot;Hello World!&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>static除了修饰属性和方法外，还有静态代码块的功能，可用于类的初始化操作。由于<code>静态代码块随着类的加载而执行</code>，因此，很多时候会将只需要进行一次的初始化操作放在static代码块中进行。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StaicBlock</span> </span>&#123;<br>	<span class="hljs-keyword">static</span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;I&#x27;m A static code block&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ol start="13">
+<li>final</li>
+</ol>
+<ul>
+<li>final的意思是最后的、最终的，它可以修饰类、属性和方法。<ul>
+<li>final修饰类（class）时，表明这个<code>类不能被继承</code>。final类中的成员变量可以根据需要设为final,但是要注意final类中的所有成员方法都会被隐式地指定为final方法。</li>
+<li>final修饰方法时（method），表明这个方法<code>不能被任何子类重写</code>。因此，如果只有在想明确禁止该方法在子类中被覆盖的情况下才将方法设置为 final。</li>
+<li>final修饰变量分为两种情况，一种是修饰基本数据类型，表示数据类型的值<code>不能被修改</code>；一种是修饰引用类型，表示对其初始化之后便不能再让其指向另一个对象。</li>
+</ul>
+</li>
+</ul>
 
             </div>
             <hr>
