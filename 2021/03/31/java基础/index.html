@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.2k 字
+      3.6k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      39
+      43
        分钟
     </span>
   
@@ -315,10 +315,12 @@
 </li>
 <li><p>switch多分支语句</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">switch</span> (week)&#123;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>		System.out.printLn(<span class="hljs-string">&quot;Monday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>		System.out.println(<span class="hljs-string">&quot;Tuesday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br>		System.out.println(<span class="hljs-string">&quot;Wednesday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:<br>		System.out.println(<span class="hljs-string">&quot;Thursday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:<br>		System.out.println(<span class="hljs-string">&quot;Friday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:<br>		System.out.println(<span class="hljs-string">&quot;Saturday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:<br>		System.out.println(<span class="hljs-string">&quot;Sunday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">default</span>:<br>		System.out.println(<span class="hljs-string">&quot;No Else&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>循环语句<br>for</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;j = i + <span class="hljs-number">10</span>;i &lt; t;i++,j = j * <span class="hljs-number">2</span>)&#123;&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>循环语句  </p>
+</li>
 </ul>
-<p>for-each</p>
+<p>for  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;j = i + <span class="hljs-number">10</span>;i &lt; t;i++,j = j * <span class="hljs-number">2</span>)&#123;&#125;<br></code></pre></td></tr></table></figure>
+<p>for-each.  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> array[] =&#123;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> arr : array) <br>&#123;<br>	System.out.println(arr);<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>do-while()</p>
@@ -328,9 +330,11 @@
 </ul>
 <p>continue退出本次循环执行下一次循环</p>
 <h2 id="面向对象"><a href="#面向对象" class="headerlink" title="面向对象"></a>面向对象</h2><ul>
-<li>java中，万事万物都是对象<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassName</span></span>&#123;<br>	<span class="hljs-comment">//body;</span><br>&#125;<br><br>ClassName cn = <span class="hljs-keyword">new</span> ClassName();<br></code></pre></td></tr></table></figure>
-尽管一切都看作是对象，但是你操纵的却是一个对象的引用（reference)。在这里有一个很形象的比喻：你可以把车钥匙和车看作是一组对象引用和对象的组合。</li>
+<li>java中，万事万物都是对象</li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ClassName</span></span>&#123;<br>	<span class="hljs-comment">//body;</span><br>&#125;<br><br>ClassName cn = <span class="hljs-keyword">new</span> ClassName();<br></code></pre></td></tr></table></figure>
+
+<p>尽管一切都看作是对象，但是你操纵的却是一个对象的引用（reference)。在这里有一个很形象的比喻：你可以把车钥匙和车看作是一组对象引用和对象的组合。</p>
 <p>当你想要开车的时候，你首先需要拿出车钥匙点击开锁的选项，停车时，你需要点击加锁来锁车。车钥匙相当于就是引用，车就是对象，由车钥匙来驱动车的加锁和开锁。并且，即使没有车的存在，车钥匙也是一个独立存在的实体，也就是说，<strong>你有一个对象引用，但你不一定需要一个对象与之关联</strong>，也就是  </p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">Car carkey;<br></code></pre></td></tr></table></figure>
 
@@ -477,9 +481,29 @@
 <li>抽象类和接口一样不能被实例化，实例化只能实例化具体的类</li>
 </ul>
 <h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>异常是程序经常会出现的，发现错误的最佳时机是在编译阶段，也就是你试图在运行程序之前。但是，在编译期间并不能找到所有的错误：</p>
-<p><code> NullPointelrException和ClassNotFoundException 异常</code></p>
+<p><code> NullPointelrException</code>和<code>ClassNotFoundException 异常</code></p>
 <p>在编译期找不到，这些异常是RuntimeException运行时异常，这些异常往往在运行时才能被发现。</p>
 <p>Java程序经常会出现两种问题，<code>java.lang.Exception和java.lang.Error</code>都用来表示出现了异常情况：</p>
+<ul>
+<li><p>认识 Exception<br><code>Exception</code>位于<code>java.lang</code>包下，它是一种顶级接口，继承于<code>Throwable</code>类，Exception类及其子类都是<code>Throwable</code>的组成条件，是程序出现的合理情况。<br>在认识 Exception之前，有必要先了解一下什么是Throwable。</p>
+</li>
+<li><p>什么是Throwable<br>Throwable类是Java语言中所有错误（errors)和异常（exceptions)的父类。只有继承于<br>Throwable 的类或者其子类才能够被抛出，还有一种方式是带有 Java 中的 <code>@throw </code>注解的类也可以<br>抛出。</p>
+</li>
+</ul>
+<p>✨java规范中，对非受查异常和受查异常的定义是这样的：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">The unchecked exception classes are <span class="hljs-keyword">the</span> <span class="hljs-built_in">run</span>-<span class="hljs-built_in">time</span> exception classes <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">error</span> classes<br></code></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada">The checked <span class="hljs-keyword">exception</span> classes are <span class="hljs-keyword">all</span> <span class="hljs-keyword">exception</span> classes other than the unchecked <span class="hljs-keyword">exception</span><br>classes. That <span class="hljs-keyword">is</span>, the checked <span class="hljs-keyword">exception</span> classes are Throwable <span class="hljs-keyword">and</span> <span class="hljs-keyword">all</span> its subclasses other<br>than RuntimeException <span class="hljs-keyword">and</span> its subclasses <span class="hljs-keyword">and</span> Error <span class="hljs-keyword">and</span> its subclasses.<br></code></pre></td></tr></table></figure>
+<ul>
+<li>也就是说，除了 RuntimeException和其子类，以及error和其子类，其它的所有异常都是checkedException</li>
+</ul>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13374153956/0" srcset="/img/loading.gif" lazyload alt="Throwable及其子类"></p>
+<ul>
+<li>Throwable类中的方法和属性很多，只讨论其中几个比较常用的<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//返回抛出异常的详细信息</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> string <span class="hljs-title">getMessage</span><span class="hljs-params">()</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> string <span class="hljs-title">getLocalizedMessage</span><span class="hljs-params">()</span></span>;<br><span class="hljs-comment">//返回异常发生时的简要描述</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span></span>;<br><span class="hljs-comment">//打印异常信息到标准输出流上</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">()</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">(PrintStream s)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">(PrintWriter s)</span></span><br><span class="hljs-function"><span class="hljs-comment">//记录栈帧的的当前状态</span></span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> Throwable <span class="hljs-title">fillInStackTrace</span><span class="hljs-params">()</span></span>;<br></code></pre></td></tr></table></figure></li>
+<li>此外，因为Throwable的父类也是Object,所以常用的方法还有继承其父类的getCLass()和getName()方法。</li>
+</ul>
+<p>⚠️ 在参加面试时可能会遇到让你举出几个常见的异常并将其分类的问题<br>RuntimeException</p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13374158064/0" srcset="/img/loading.gif" lazyload alt="RuntimeException"></p>
+<p>UncheckedException<br><img src="https://inews.gtimg.com/newsapp_ls/0/13374159915/0" srcset="/img/loading.gif" lazyload alt="UncheckedException"></p>
 
             </div>
             <hr>
