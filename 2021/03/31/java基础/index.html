@@ -14,7 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="对java的应用有了一些新想法，挑战3天回顾java基础知识
+  <meta name="description" content="对java的应用有了一些新想法，挑战3天回顾java基础知识  
 清明节实在太累了😭 加多两天吧！">
   <meta name="author" content="Baikal &amp; Swan">
   <meta name="keywords" content="">
@@ -186,7 +186,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.8k 字
+      4.9k 字
     </span>
   
 
@@ -196,7 +196,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      58
+      59
        分钟
     </span>
   
@@ -237,7 +237,7 @@
             <h1 style="display: none">Java基础</h1>
             
             <div class="markdown-body">
-              <p>对java的应用有了一些新想法，挑战3天回顾java基础知识</p>
+              <p>对java的应用有了一些新想法，挑战3天回顾java基础知识  </p>
 <p>清明节实在太累了😭 加多两天吧！</p>
 <span id="more"></span>
 
@@ -568,6 +568,15 @@
 <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><p>集合在我们的日常开发中所使用的次数简直太多了，你已经把它们都用的熟透了，但是作为一名合格的程序员，你不仅要了解它的基本用法，你还要了解它的源码；存在即合理，你还要了解它是如何设计和实现的，你还要了解它的衍生过程。<br>这篇博客就来详细介绍一下 Collection这个庞大集合框架的家族体系和成员，让你了解它的设计与实现。</p>
 <p>是时候祭出这张神图了</p>
 <p><img src="https://inews.gtimg.com/newsapp_ls/0/13377058471/0" srcset="/img/loading.gif" lazyload alt="Collection集合框架"></p>
+<p>爷爷辈接口——<strong>Iterator</strong></p>
+<ul>
+<li>Iterable 接口</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;Object&gt; list = <span class="hljs-keyword">new</span> ArrayList();<br><span class="hljs-keyword">for</span>(Object obj : list)&#123;&#125;<br></code></pre></td></tr></table></figure>
+
+<p>除了实现此接口的对象外，数组也可以用for-each循环遍历：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Object[] list = <span class="hljs-keyword">new</span> Object[<span class="hljs-number">10</span>];<br><span class="hljs-keyword">for</span>(Object obj : list)&#123;&#125;<br></code></pre></td></tr></table></figure>
+
 
             </div>
             <hr>
