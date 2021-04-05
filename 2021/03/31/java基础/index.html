@@ -185,7 +185,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.6k 字
+      4.6k 字
     </span>
   
 
@@ -195,7 +195,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      43
+      56
        分钟
     </span>
   
@@ -512,6 +512,58 @@
 <p>⚠️ 在参加面试时可能会遇到让你举出几个常见的异常并将其分类的问题<br>RuntimeException</p>
 <p><img src="https://inews.gtimg.com/newsapp_ls/0/13374158064/0" srcset="/img/loading.gif" lazyload alt="RuntimeException"></p>
 <p>UncheckedException<br><img src="https://inews.gtimg.com/newsapp_ls/0/13374159915/0" srcset="/img/loading.gif" lazyload alt="UncheckedException"></p>
+<p>在Java中是如何处理这些异常的呢？主要通过以下几个关键字：  </p>
+<ul>
+<li>throws-throw  </li>
+<li>try-catch-finally</li>
+</ul>
+<p>在Java中，<code>异常也就是一个对象</code>，它能够被程序员自定义抛出或者应用程序抛出，必须借助于<code>throws和throw语句</code>来定义抛出异常。<br>throws和throw通常是成对出现的，例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cacheException</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br>	<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>throw 语句用在方法体内，表示抛出异常，由方法体内的语句处理。throws 语句用在实现方法名后面，表示再抛出异常，由该方法的调用者来处理。</li>
+<li>throws主要是声明这个方法会抛出这种类型的异常，使它的调用者知道要捕获这个异常。throw是具体向外抛异常的动作，所以它是抛出一个异常实例。</li>
+</ul>
+<ul>
+<li>try、finally、catch</li>
+</ul>
+<p>这三个关键字主要有下面几种组合方式<code> try...catch</code>、<code>try...finally</code>、<code>try...catch...finally</code></p>
+<p><code>try...catch</code>表示对某一段代码可能抛出异常进行的捕获，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cacheException</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br>	<span class="hljs-keyword">try</span> &#123;<br>		System.out.println(<span class="hljs-string">&quot;1&quot;</span>);<br>	&#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;<br>		e.printStackTrace();<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>try...finally</code>表示对一段代码不管执行情况如何，都会走finally中的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cacheException</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &amp;lt; <span class="hljs-number">5</span>; i++)&#123;<br>		System.out.println(<span class="hljs-string">&quot;enter:i=&quot;</span>+i);<br>		<span class="hljs-keyword">try</span> &#123;<br>			System.out.println(<span class="hljs-string">&quot;execute:i=&quot;</span>+i);<br>			<span class="hljs-keyword">continue</span>;<br>		&#125; <span class="hljs-keyword">finally</span> &#123;<br>			System.out.println(<span class="hljs-string">&quot;leave:i=&quot;</span>+i);<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>try...catch...finally</code> 也是一样的，表示对异常捕获后，再走 finally 中的代码逻辑</p>
+<ul>
+<li>什么是Error<br>Error是程序无法处理的错误，表示运行应用程序中较严重问题。大多数错误与代码编写者执行的操作<br>无关，而表示代码运行时JVM(Java虚拟机）出现的问题。</li>
+</ul>
+<p>这些错误是不可检查的，因为它们在应用程序的控制和处理能力之外，而且绝大多数是程序运行时不允许出现的状况，比如<br><code>OutofMemoryError </code>和 <code>StackOverflowError</code> 异常的出现会有几种情况，这里需要先介绍一下Java内存模型JDK1.7</p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13377012028/0" srcset="/img/loading.gif" lazyload alt="Java内存模型JDK1.7"></p>
+<p>其中包括两部分:<br>由所有<code>线程共享的数据区</code>和<code>线程隔离的数据区</code><br>在上面的Java内存模型中，只有<code>程序计数器</code>是不会发生 <code>OutOfMemoryError</code>情况的区域，程序计数器控制着计算机指令的分支、循环、跳转、异常处理和线程恢复，并且程序计数器是每个线程私有的</p>
+<p><code>什么是线程私有：表示的就是各条线程之间互不影响，独立存储的内存区</code></p>
+<p>如果应用程序执行的是Java方法，那么这个计数器记录的就是<code>虚拟机字节码</code>指令的地址；<br>如果正在执行的是Native方法，那么计数器值为空（Undefined）</p>
+<p>除了程序计数器外，其他区域：<code>方法区（Method Area)</code>、<code>虚拟机栈（VM Stack)</code>、<code>本地方法栈(Native Method Stack)</code>和<code>堆（Heap)</code>都是可能发生<code>OutOfMemoryError</code>的区域。</p>
+<ul>
+<li><p>虚拟机栈：如果线程请求的栈深度大于虚拟机栈所允许的深度，将会出现StackoverflowError 异常；如果虚拟机动态扩展无法申请到足够的内存，将出现OutOfMemoryError。</p>
+</li>
+<li><p>本地方法栈和虚拟机栈一样</p>
+<ul>
+<li>堆：Java堆可以处于物理上不连续，逻辑上连续，就像我们的磁盘空间一样，如果堆中没有内存完成实例分配，并且堆无法扩展时，将会抛出OutOfMemoryError。</li>
+<li>方法区：方法区无法满足内存分配需求时，将抛出OutOfMemoryError异常。s</li>
+</ul>
+</li>
+<li><p>在Java中，你可以把异常理解为是一种能够提高你程序健壮性的机制，它能够让你在编写代码中注意这些问题，也可以说，如果你写代码不会注意这些异常情况，你是无法成为一位硬核程序员的。</p>
+</li>
+</ul>
+<h2 id="内部类"><a href="#内部类" class="headerlink" title="内部类"></a>内部类</h2><p>内部类是一种非常有用的特性，定义在类内部的类，持有外部类的引用，但却对其他外部类不可见，看<br>起来就像是一种隐藏代码的机制.</p>
+<ul>
+<li>创建内部类</li>
+</ul>
+<p>直接将一个类定义在外围类的里面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">OuterClass</span> </span>&#123;<br>	<span class="hljs-keyword">private</span> String name ;<br>	<span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> age;<br><br>	<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">InnerClass</span></span>&#123;<br>		<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">InnerClass</span><span class="hljs-params">()</span></span>&#123;<br>			name =<span class="hljs-string">&quot;hello&quot;</span>;<br>		age=<span class="hljs-number">25</span>;<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
 
             </div>
             <hr>
