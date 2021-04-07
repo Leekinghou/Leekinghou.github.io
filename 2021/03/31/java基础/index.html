@@ -186,7 +186,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.9k 字
+      5.8k 字
     </span>
   
 
@@ -196,7 +196,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      59
+      69
        分钟
     </span>
   
@@ -358,10 +358,12 @@
 <li><p>构造方法</p>
 <ul>
 <li>只在创建对象时使用</li>
-<li>可以有多个<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Apple</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> sum;<br>	String color;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">()</span></span>&#123;&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sum)</span></span>&#123;&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">(String color)</span></span>&#123;&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sum,String color)</span></span>&#123;&#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li>可以有多个</li>
 </ul>
 </li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Apple</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> sum;<br>	String color;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">()</span></span>&#123;&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sum)</span></span>&#123;&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">(String color)</span></span>&#123;&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sum,String color)</span></span>&#123;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>各个Apple的参数不一样，是一种<code>多态</code>的表现</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Apple</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> sum;<br>	String color;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">()</span></span>&#123;&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sum)</span></span>&#123;&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">(String color)</span></span>&#123;&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">Apple</span><span class="hljs-params">(<span class="hljs-keyword">int</span> sum,String color)</span></span>&#123;&#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
 
@@ -391,10 +393,11 @@
 <li><p>this和super都是Java中的关键字</p>
 </li>
 <li><p>this表示的当前对象，this可以调用<code>方法、调用属性和指向对象本身</code>this在Java中的使用一般有三种：指向当前对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Apple</span> </span>&#123;<br><br>	<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;<br><br>	<span class="hljs-function">Apple <span class="hljs-title">eatApple</span><span class="hljs-params">()</span></span>&#123;<br>		i++;<br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>	&#125;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>		Apple apple = <span class="hljs-keyword">new</span> Apple();<br>		apple.eatApple().eatApple();<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>这段代码比较特别，eatApple()方法竟然可以调用多次  </p>
 </li>
 </ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Apple</span> </span>&#123;<br><br>	<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;<br><br>	<span class="hljs-function">Apple <span class="hljs-title">eatApple</span><span class="hljs-params">()</span></span>&#123;<br>		i++;<br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>;<br>	&#125;<br><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>		Apple apple = <span class="hljs-keyword">new</span> Apple();<br>		apple.eatApple().eatApple();<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这段代码比较特别，eatApple()方法竟然可以调用多次  </p>
 <p>你在后面还可以继续调用，为什么？  </p>
 <p>是this在发挥作用：在eatApple方法中加了一个<code>return this </code>的返回值，也就是说哪个对象调用 eatApple 方法都能返回对象的自身</p>
 <p>✨this最常用的方法是修饰属性：</p>
@@ -424,8 +427,10 @@
 </ul>
 <p>继承、重写</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fruit</span> </span>&#123;<br>	<span class="hljs-keyword">int</span> num;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span></span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;eat Fruit&quot;</span>);<br><br>&#125;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Apple</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">Fruit</span></span>&#123;<br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">eat</span><span class="hljs-params">()</span></span>&#123;<br>		<span class="hljs-keyword">super</span>.num=<span class="hljs-number">10</span>;<br>		System . out . println ( <span class="hljs-string">&quot; eat &quot;</span> + num + <span class="hljs-string">&quot; Apple &quot;</span> ) ;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>父类引用指向子类对象</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>	Fruit fruit = <span class="hljs-keyword">new</span> Apple();<br>	fruit.eat()<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>可以发现 main 方法中有一个很神奇的地方，<code>Fruit fruit = new Apple()</code>,Fruit类型的对象竟然指向了Apple对象的引用，这其实就是多态-&gt;父类引用指向子类对象，因为Apple继承于Fruit,并且重写了eat方法，所以能够表现出来多种状态的形式。</p>
 <h2 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h2><p>组合其实不难理解，就是将对象引用置于新类中即可。组合也是一种提高类的复用性的一种方式。如果<br>想让类具有更多的扩展功能，只需要记住一句话  </p>
 <p><code>多用组合，少用继承</code></p>
@@ -446,8 +451,10 @@
 
 <h2 id="static"><a href="#static" class="headerlink" title="static"></a>static</h2><p>用在没有创建对象时调用方法/变量</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> String name = <span class="hljs-string">&quot;hellworld&quot;</span><br></code></pre></td></tr></table></figure>
+
 <p>使用static修饰的方法称为静态方法，静态方法能够直接使用<code>类名.方法名</code>进行调用。由于静态方法<code>不依赖于任何对象</code>就可以直接访问，因此对于静态方法来说，是没有this关键字的，实例变量都会有this关键字。在静态方法中不能访问类的非静态成员变量和非静态方法。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printMessage</span><span class="hljs-params">()</span></span>&#123;<br>	System.out.println(<span class="hljs-string">&quot;Hello World!&quot;</span>)<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>static除了修饰属性和方法外，还有静态代码块的功能，可用于类的初始化操作。由于<code>静态代码块随着类的加载而执行</code>，因此，很多时候会将只需要进行一次的初始化操作放在static代码块中进行。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StaicBlock</span> </span>&#123;<br>	<span class="hljs-keyword">static</span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;I&#x27;m A static code block&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
 
@@ -482,6 +489,7 @@
 </ul>
 <p>抽象类是一种抽象能力弱于接口的类，关键词是<code>abstract</code>，如果接口是狗这个物种，抽象类可以说毛发是白色、狗的品种，而实现类可以是具体的类，比如是博美、拿破仑等。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Dog</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FurColor</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WhiteDog</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Dog</span></span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">FurColor</span><span class="hljs-params">()</span></span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;Fur is white&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SmallBody</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>在抽象类中</p>
 <ul>
 <li>如果一个类中有抽象方法，那么这个类一定是抽象类，也就是说，使用关键字<code>abstract</code>修饰的方法一定是抽象方法，具有抽象方法的类一定是抽象类</li>
@@ -508,7 +516,11 @@
 </ul>
 <p><img src="https://inews.gtimg.com/newsapp_ls/0/13374153956/0" srcset="/img/loading.gif" lazyload alt="Throwable及其子类"></p>
 <ul>
-<li>Throwable类中的方法和属性很多，只讨论其中几个比较常用的<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//返回抛出异常的详细信息</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> string <span class="hljs-title">getMessage</span><span class="hljs-params">()</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> string <span class="hljs-title">getLocalizedMessage</span><span class="hljs-params">()</span></span>;<br><span class="hljs-comment">//返回异常发生时的简要描述</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span></span>;<br><span class="hljs-comment">//打印异常信息到标准输出流上</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">()</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">(PrintStream s)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">(PrintWriter s)</span></span><br><span class="hljs-function"><span class="hljs-comment">//记录栈帧的的当前状态</span></span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> Throwable <span class="hljs-title">fillInStackTrace</span><span class="hljs-params">()</span></span>;<br></code></pre></td></tr></table></figure></li>
+<li>Throwable类中的方法和属性很多，只讨论其中几个比较常用的</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//返回抛出异常的详细信息</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> string <span class="hljs-title">getMessage</span><span class="hljs-params">()</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> string <span class="hljs-title">getLocalizedMessage</span><span class="hljs-params">()</span></span>;<br><span class="hljs-comment">//返回异常发生时的简要描述</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span></span>;<br><span class="hljs-comment">//打印异常信息到标准输出流上</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">()</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">(PrintStream s)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">(PrintWriter s)</span></span><br><span class="hljs-function"><span class="hljs-comment">//记录栈帧的的当前状态</span></span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> Throwable <span class="hljs-title">fillInStackTrace</span><span class="hljs-params">()</span></span>;<br></code></pre></td></tr></table></figure>
+
+<ul>
 <li>此外，因为Throwable的父类也是Object,所以常用的方法还有继承其父类的getCLass()和getName()方法。</li>
 </ul>
 <p>⚠️ 在参加面试时可能会遇到让你举出几个常见的异常并将其分类的问题<br>RuntimeException</p>
@@ -577,6 +589,61 @@
 <p>除了实现此接口的对象外，数组也可以用for-each循环遍历：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Object[] list = <span class="hljs-keyword">new</span> Object[<span class="hljs-number">10</span>];<br><span class="hljs-keyword">for</span>(Object obj : list)&#123;&#125;<br></code></pre></td></tr></table></figure>
 
+<ul>
+<li>顶层接口</li>
+</ul>
+<p><code>Collection</code>是一个顶层接口，主要用来定义集合的约定</p>
+<p><code>List</code>接口也是一个顶层接口，继承了Collection，同时也是<code>ArrayList</code>、<code>LinkedList</code>等集合元素的父类</p>
+<p><code>Set</code>接口与List接口同级别，也继承了Collection，提供了额外的规定。对add、equals、hashCode方法提供了额外的标准。</p>
+<p><code>Queue</code>是List、Set接口以外的Collection的三大接口之一。Queue的设计用来在处理之前保持元素的访问次序。除了Collection基础的操作之外，队列提供了额外的插入，读取，检查操作。</p>
+<p><code>SortedSet</code>接口直接继承于Set接口，使用<code>Comparable</code>对元素进行自然排序或者使用<code>Comparator</code>在<br>创建时对元素提供定制的排序规则。set的迭代器将按升序元素顺序遍历集合。</p>
+<p><code>Map</code>是一个支持<code>key-value</code>存储的对象，Map不能包含重复的key,每个键最多映射一个值。这个接口代替了Dictionary类，Dictionary是一个抽象类而不是接口。</p>
+<ul>
+<li>ArrayList </li>
+</ul>
+<p>ArrayList 是实现了List接口的可扩容数组(动态数组)，内部是在数组的基础上实现的</p>
+<p>ArrayList可以替代Vector，但是ArrayList不是线程安全的容器。当有多个线程中至少有两个修改了ArrayList的结构，就会导致线程安全问题， 可以使用线程安全的List替代：</p>
+<p><code>Collections.synchronizedList</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">线程安全：当多个线程访问某个方法时，不管通过怎样的调用方式或者无论线程如何交替的执行，在主程序中不需要去做任何的同步，这个类的结果行为都是我们设想的正确行为，那么我们就可以说这个类是线程安全的<br></code></pre></td></tr></table></figure>
+
+
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/42719755">什么是线程安全-知乎回答</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000038320670">4种解决线程安全问题的方式</a></p>
+<p>ArrayList支持fail-fast机制</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq"><span class="hljs-built_in">fail</span>-fast 机制是Java集合(<span class="hljs-keyword">Collection</span>)中的一种错误机制。 在用迭代器遍历一个集合对象时，如果遍历过程中对集合对象的结构进行了修改（增加、删除），则会抛出Concurrent Modification Exception（并发修改异常）<br></code></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6879291161274482695">什么是fail-fast机制</a></p>
+<ul>
+<li>Vector</li>
+</ul>
+<p>ArrayList内部是在数组的基础上实现的,Vector是一个线程安全的容器，对内部每个方法，避免出现线程安全问题的解决方法都是直接加锁。</p>
+<p>这种方法的缺点是同步开销大，访问效率远低于ArrayList</p>
+<p>在扩容时ArrayList扩容后数组长度只增加50%，而Vector的扩容会扩大一倍长度。</p>
+<ul>
+<li>LinkedList类<ul>
+<li>LinkedList是一个双向链表，允许存储任何元素(包括null)，它有以下特性：  <ul>
+<li>LinkedList所有操作都是双向的，索引到链表的操作将遍历从头到尾，从距离近的那一头开始遍历</li>
+<li>只有这个链表外部加锁后，通过LinkedList实现的方法才是线程安全的，如果多个线程并发访问链表，并且至少其中一个线程修改了链表结构，这个链表必须进行外部加锁，或者使用：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><code>List list = Collections.synchronizedList(new LinkedList(...))</code></p>
+<ul>
+<li>Stack<br>stack-堆栈，是后入先出容器。继承了Vector类，提供了通常用的push和pop操作，以及在栈顶的peek方法，测试stack是否为空的empty方法，和一个寻找与栈顶距离的search方法</li>
+</ul>
+<p>第一次创建栈，不包含任何元素。一个更完善，可靠性更强的LIFO栈操作由Deque接口和他的实现提供：</p>
+<p><code>Deque&lt;Integer&gt; stack = new ArrayDeque&lt;Integer&gt;()</code></p>
+<ul>
+<li>HashSet<br>HashSet是Set接口的实现类，由哈希表支持（实际上HashSet是HashMap的一个实例），不能保证集合的迭代顺序，允许有null元素<ul>
+<li>这个实现不是线程安全的</li>
+<li>需要外部加锁，或者使用Collections.synchronizedSet()方法重写</li>
+<li>支持fail-fast机制</li>
+</ul>
+</li>
+</ul>
+<p>等等</p>
 
             </div>
             <hr>
