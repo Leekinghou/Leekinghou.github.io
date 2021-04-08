@@ -1,0 +1,562 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://inews.gtimg.com/newsapp_ls/0/13372468765/0">
+  <link rel="icon" href="https://inews.gtimg.com/newsapp_ls/0/13372468765/0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Baikal &amp; Swan">
+  <meta name="keywords" content="">
+  
+  <title>Java异常(5) - lijinhao</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"4jerH08HcirkoizcHRl5Vxkv-gzGzoHsz","app_key":"igG3w08CQrEmtUg0pTLSyrup","server_url":"https://4jerh08h.lc-cn-n1-shared.com"}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Baikal's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/MyTree/">
+                <i class="iconfont icon-addrcard"></i>
+                MyTree
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://pic.iask.cn/fimg/831492611394.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java异常(5)">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-08 22:35" pubdate>
+        April 8, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.5k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java异常(5)</h1>
+            
+            <div class="markdown-body">
+              <h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><p>异常是程序经常会出现的，发现错误的最佳时机是在编译阶段，也就是你试图在运行程序之前。但是，在编译期间并不能找到所有的错误：</p>
+<p><code> NullPointelrException</code>和<code>ClassNotFoundException 异常</code></p>
+<p>在编译期找不到，这些异常是RuntimeException运行时异常，这些异常往往在运行时才能被发现。</p>
+<p>Java程序经常会出现两种问题，<code>java.lang.Exception和java.lang.Error</code>都用来表示出现了异常情况：</p>
+<h2 id="认识-Exception"><a href="#认识-Exception" class="headerlink" title="认识 Exception"></a>认识 Exception</h2><p><code>Exception</code>位于<code>java.lang</code>包下，它是一种顶级接口，继承于<code>Throwable</code>类，Exception类及其子类都是<code>Throwable</code>的组成条件，是程序出现的合理情况。<br>在认识 Exception之前，有必要先了解一下什么是Throwable。</p>
+<h2 id="什么是Throwable"><a href="#什么是Throwable" class="headerlink" title="什么是Throwable"></a>什么是Throwable</h2><p>Throwable类是Java语言中所有错误（errors)和异常（exceptions)的父类。只有继承于<br>Throwable 的类或者其子类才能够被抛出，还有一种方式是带有 Java 中的 <code>@throw </code>注解的类也可以<br>抛出。</p>
+<p>✨java规范中，对非受查异常和受查异常的定义是这样的：</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs applescript">The unchecked exception classes are <span class="hljs-keyword">the</span> <span class="hljs-built_in">run</span>-<span class="hljs-built_in">time</span> exception classes <span class="hljs-keyword">and</span> <span class="hljs-keyword">the</span> <span class="hljs-keyword">error</span> classes<br></code></pre></td></tr></table></figure>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs ada">The checked <span class="hljs-keyword">exception</span> classes are <span class="hljs-keyword">all</span> <span class="hljs-keyword">exception</span> classes other than the unchecked <span class="hljs-keyword">exception</span><br>classes. That <span class="hljs-keyword">is</span>, the checked <span class="hljs-keyword">exception</span> classes are Throwable <span class="hljs-keyword">and</span> <span class="hljs-keyword">all</span> its subclasses other<br>than RuntimeException <span class="hljs-keyword">and</span> its subclasses <span class="hljs-keyword">and</span> Error <span class="hljs-keyword">and</span> its subclasses.<br></code></pre></td></tr></table></figure>
+<ul>
+<li>也就是说，除了 RuntimeException和其子类，以及error和其子类，其它的所有异常都是checkedException</li>
+</ul>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13374153956/0" srcset="/img/loading.gif" lazyload alt="Throwable及其子类"></p>
+<ul>
+<li>Throwable类中的方法和属性很多，只讨论其中几个比较常用的</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//返回抛出异常的详细信息</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> string <span class="hljs-title">getMessage</span><span class="hljs-params">()</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> string <span class="hljs-title">getLocalizedMessage</span><span class="hljs-params">()</span></span>;<br><span class="hljs-comment">//返回异常发生时的简要描述</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">public</span> String <span class="hljs-title">toString</span><span class="hljs-params">()</span></span>;<br><span class="hljs-comment">//打印异常信息到标准输出流上</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">()</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">(PrintStream s)</span></span>;<br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">printStackTrace</span><span class="hljs-params">(PrintWriter s)</span></span><br><span class="hljs-function"><span class="hljs-comment">//记录栈帧的的当前状态</span></span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">synchronized</span> Throwable <span class="hljs-title">fillInStackTrace</span><span class="hljs-params">()</span></span>;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>此外，因为Throwable的父类也是Object,所以常用的方法还有继承其父类的getCLass()和getName()方法。</li>
+</ul>
+<p>⚠️ 在参加面试时可能会遇到让你举出几个常见的异常并将其分类的问题<br>RuntimeException</p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13374158064/0" srcset="/img/loading.gif" lazyload alt="RuntimeException"></p>
+<p>UncheckedException<br><img src="https://inews.gtimg.com/newsapp_ls/0/13374159915/0" srcset="/img/loading.gif" lazyload alt="UncheckedException"></p>
+<p>在Java中是如何处理这些异常的呢？主要通过以下几个关键字：  </p>
+<h3 id="throws-throw"><a href="#throws-throw" class="headerlink" title="throws-throw"></a>throws-throw</h3><h3 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try-catch-finally"></a>try-catch-finally</h3><p>在Java中，<code>异常也就是一个对象</code>，它能够被程序员自定义抛出或者应用程序抛出，必须借助于<code>throws和throw语句</code>来定义抛出异常。<br>throws和throw通常是成对出现的，例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cacheException</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br>	<span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> Exception();<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<ul>
+<li>throw 语句用在方法体内，表示抛出异常，由方法体内的语句处理。throws 语句用在实现方法名后面，表示再抛出异常，由该方法的调用者来处理。</li>
+<li>throws主要是声明这个方法会抛出这种类型的异常，使它的调用者知道要捕获这个异常。throw是具体向外抛异常的动作，所以它是抛出一个异常实例。</li>
+</ul>
+<h3 id="try、finally、catch"><a href="#try、finally、catch" class="headerlink" title="try、finally、catch"></a>try、finally、catch</h3><p>这三个关键字主要有下面几种组合方式<code> try...catch</code>、<code>try...finally</code>、<code>try...catch...finally</code></p>
+<p><code>try...catch</code>表示对某一段代码可能抛出异常进行的捕获，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cacheException</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br>	<span class="hljs-keyword">try</span> &#123;<br>		System.out.println(<span class="hljs-string">&quot;1&quot;</span>);<br>	&#125;<span class="hljs-keyword">catch</span>(Exception e)&#123;<br>		e.printStackTrace();<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>try...finally</code>表示对一段代码不管执行情况如何，都会走finally中的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cacheException</span><span class="hljs-params">()</span> <span class="hljs-keyword">throws</span> Exception</span>&#123;<br>	<span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &amp;lt; <span class="hljs-number">5</span>; i++)&#123;<br>		System.out.println(<span class="hljs-string">&quot;enter:i=&quot;</span>+i);<br>		<span class="hljs-keyword">try</span> &#123;<br>			System.out.println(<span class="hljs-string">&quot;execute:i=&quot;</span>+i);<br>			<span class="hljs-keyword">continue</span>;<br>		&#125; <span class="hljs-keyword">finally</span> &#123;<br>			System.out.println(<span class="hljs-string">&quot;leave:i=&quot;</span>+i);<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p><code>try...catch...finally</code> 也是一样的，表示对异常捕获后，再走 finally 中的代码逻辑</p>
+<h2 id="什么是Error"><a href="#什么是Error" class="headerlink" title="什么是Error"></a>什么是Error</h2><p>Error是程序无法处理的错误，表示运行应用程序中较严重问题。大多数错误与代码编写者执行的操作<br>无关，而表示代码运行时JVM(Java虚拟机）出现的问题。</p>
+<p>这些错误是不可检查的，因为它们在应用程序的控制和处理能力之外，而且绝大多数是程序运行时不允许出现的状况，比如<br><code>OutofMemoryError </code>和 <code>StackOverflowError</code> 异常的出现会有几种情况，这里需要先介绍一下Java内存模型JDK1.7</p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13377012028/0" srcset="/img/loading.gif" lazyload alt="Java内存模型JDK1.7"></p>
+<p>其中包括两部分:<br>由所有<code>线程共享的数据区</code>和<code>线程隔离的数据区</code><br>在上面的Java内存模型中，只有<code>程序计数器</code>是不会发生 <code>OutOfMemoryError</code>情况的区域，程序计数器控制着计算机指令的分支、循环、跳转、异常处理和线程恢复，并且程序计数器是每个线程私有的</p>
+<p><code>什么是线程私有：表示的就是各条线程之间互不影响，独立存储的内存区</code></p>
+<p>如果应用程序执行的是Java方法，那么这个计数器记录的就是<code>虚拟机字节码</code>指令的地址；<br>如果正在执行的是Native方法，那么计数器值为空（Undefined）</p>
+<p>除了程序计数器外，其他区域：<code>方法区（Method Area)</code>、<code>虚拟机栈（VM Stack)</code>、<code>本地方法栈(Native Method Stack)</code>和<code>堆（Heap)</code>都是可能发生<code>OutOfMemoryError</code>的区域。</p>
+<ul>
+<li><p>虚拟机栈：如果线程请求的栈深度大于虚拟机栈所允许的深度，将会出现StackoverflowError 异常；如果虚拟机动态扩展无法申请到足够的内存，将出现OutOfMemoryError。</p>
+</li>
+<li><p>本地方法栈和虚拟机栈一样</p>
+<ul>
+<li>堆：Java堆可以处于物理上不连续，逻辑上连续，就像我们的磁盘空间一样，如果堆中没有内存完成实例分配，并且堆无法扩展时，将会抛出OutOfMemoryError。</li>
+<li>方法区：方法区无法满足内存分配需求时，将抛出OutOfMemoryError异常。s</li>
+</ul>
+</li>
+<li><p>在Java中，你可以把异常理解为是一种能够提高你程序健壮性的机制，它能够让你在编写代码中注意这些问题，也可以说，如果你写代码不会注意这些异常情况，你是无法成为一位硬核程序员的。</p>
+</li>
+</ul>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/">java语言基础</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/04/08/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">集合框架</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/08/Java%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB/">
+                        <span class="hidden-mobile">Java接口和抽象类(3)</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
