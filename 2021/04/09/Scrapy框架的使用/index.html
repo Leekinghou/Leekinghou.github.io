@@ -1,0 +1,601 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://inews.gtimg.com/newsapp_ls/0/13372468765/0">
+  <link rel="icon" href="https://inews.gtimg.com/newsapp_ls/0/13372468765/0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="2021.4.8 投了一个python爬虫实习岗位 呼～希望能入职，开学前赚一波生活费😭">
+  <meta name="author" content="Baikal &amp; Swan">
+  <meta name="keywords" content="">
+  
+  <title>Scrapy框架的使用 - lijinhao</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"4jerH08HcirkoizcHRl5Vxkv-gzGzoHsz","app_key":"igG3w08CQrEmtUg0pTLSyrup","server_url":"https://4jerh08h.lc-cn-n1-shared.com"}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Baikal's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/MyTree/">
+                <i class="iconfont icon-addrcard"></i>
+                MyTree
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://pic.iask.cn/fimg/831492611394.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Scrapy框架的使用">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-09 14:33" pubdate>
+        April 9, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      22
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Scrapy框架的使用</h1>
+            
+            <div class="markdown-body">
+              <p>2021.4.8 投了一个python爬虫实习岗位 呼～<br>希望能入职，开学前赚一波生活费😭</p>
+<span id="more"></span>
+
+<h1 id="Scrapy框架的使用"><a href="#Scrapy框架的使用" class="headerlink" title="Scrapy框架的使用"></a>Scrapy框架的使用</h1><p>之前学习了pyspider框架的用法，可以利用它快速完成爬虫的编写。但是pyspider框架自身存在一些缺点，比如说：  </p>
+<ol>
+<li>可配置程度低</li>
+<li>异常处理能力有限</li>
+<li>对于强反爬网站力不从心</li>
+</ol>
+<p>而Scrapy框架更加强大， 爬取效率高，扩展组件非常多，可配置、可扩展程度高，应用也最广泛。</p>
+<h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>Scrapy基于Twisted的异步处理框架，是纯Python实现的，架构清晰，模块之间耦合度低，非常灵活。同时非常轻便，只需要定制开发几个模块就可以轻松实现一个爬虫。通过多个组件之间的相互协作，不同组件完成各自的任务，以及组件对异步的支持，Scrapy最大限度地提高了网络带宽，提高了数据爬取效率</p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13390884437/0" srcset="/img/loading.gif" lazyload alt="Scrapy架构"></p>
+<ul>
+<li><p>Spiders<br>定义了爬取的逻辑和网页中抽取的项目，主要负责解析响应并生成提取结果和新的请求</p>
+</li>
+<li><p>Spider Middlewares<br>中间件，主要处理爬虫输入的响应和输出的结果以及新的请求</p>
+</li>
+<li><p>Engine<br>处理整个系统的数据流、触发事务，是框架的核心</p>
+</li>
+<li><p>Scheduler<br>调度器，接受引擎发送的请求并将其加入队列，在引擎再次请求时提供该请求给下载器</p>
+</li>
+<li><p>Downloader<br>下载网页内容，并将网页内容返回给爬虫</p>
+</li>
+<li><p>Downloader Middlewares<br>主要处理引擎与下载器之间的请求和响应</p>
+</li>
+<li><p>Item Pipeline<br>负责处理爬虫从网页中抽取的内容，清洗、验证和存储数据</p>
+</li>
+<li><p>Item<br>定义了爬取结果的数据结构，爬取的数据会被赋值成该Item对象</p>
+</li>
+</ul>
+<h2 id="数据流"><a href="#数据流" class="headerlink" title="数据流"></a>数据流</h2><ol>
+<li>Engine首先打开一个网站，找到处理该网站的Spider。</li>
+<li>Engine从Spider获取第一个要爬取的URL，并通过Scheduler以Request的形式调度</li>
+<li>Engine向Scheduler请求下一个要爬取的URL</li>
+<li>Scheduler返回下一个要爬取的URL给Engine，后者将该URL通过Downloader Middlewares发送给Downloader</li>
+<li>一旦页面下载完毕，Downloader生成该页面的Response，并将其通过Downloader Middlewares发送给Engine</li>
+<li>Engine从下载器中接收到Response，并将其通过Spider Middlewares发送给Spider处理</li>
+<li>Spider处理Response，并返回爬取到的Item及新的Request给Engine</li>
+<li>Engine将Spider返回的Item给Item Pipeline，将新的Request给Scheduler</li>
+<li>重复第2～第8步，直到Scheduler中没有更多的Request，Engine关闭该网站，爬取结束</li>
+</ol>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><code> pip3 install Scrapy</code></p>
+<h3 id="初始化Scrapy项目"><a href="#初始化Scrapy项目" class="headerlink" title="初始化Scrapy项目"></a>初始化Scrapy项目</h3><p>初始化一个名为tutorial的scrapy项目:<br><code>scrapy startproject tutorial</code></p>
+<p>此时tuorial的目录结构：<br><img src="https://inews.gtimg.com/newsapp_ls/0/13391484206/0" srcset="/img/loading.gif" lazyload></p>
+<h3 id="创建爬虫"><a href="#创建爬虫" class="headerlink" title="创建爬虫"></a>创建爬虫</h3><p>新建一个名为quotes的爬虫爬取quotes.toscrape.com这个网站：<br><code> scrapy genspider quotes quotes.toscrape.com</code></p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13391528612/0" srcset="/img/loading.gif" lazyload></p>
+<p>查看quotes.py的内容：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> scrapy<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">QuotesSpider</span>(<span class="hljs-params">scrapy.Spider</span>):</span><br>    name = <span class="hljs-string">&#x27;quotes&#x27;</span><br>    allowed_domains = [<span class="hljs-string">&#x27;quotes.toscrape.com&#x27;</span>]<br>    start_urls = [<span class="hljs-string">&#x27;http://quotes.toscrape.com/&#x27;</span>]<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse</span>(<span class="hljs-params">self, response</span>):</span><br>        <span class="hljs-keyword">pass</span><br><br></code></pre></td></tr></table></figure>
+<p>可以看到有三个属性：name、allowed_domains、start_urls和一个方法parse  </p>
+<ul>
+<li>name是每个项目唯一的名字</li>
+<li>allowed_domains是目标网站</li>
+<li>start_urls是spider启动时爬取的url列表，初始请求由它来定义</li>
+<li>parse：默认情况下，被调用时start_urls里面的链接构成的请求完成下载执行之后，返回的响应就会作为唯一的参数传递给这个函数。parse函数负责解析返回的响应、提取数据或者进一步生成要处理的请求。</li>
+</ul>
+<h3 id="创建Item"><a href="#创建Item" class="headerlink" title="创建Item"></a>创建Item</h3><p>Item时保存爬取数据的容器，使用方法与字典类似。</p>
+<p>但相比字典多了额外的保护机制，可以避免拼写错误或者定义字段错误</p>
+<p>创建Item需要继承scrapy.Item类，并且定义scrapy.Field字段。一般可以获取到的内容有text、author、tags。</p>
+<p>定义Item时将items.py修改如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> scrapy<br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TutorialItem</span>(<span class="hljs-params">scrapy.Item</span>):</span><br>    <span class="hljs-comment"># define the fields for your item here like:</span><br>    <span class="hljs-comment"># name = scrapy.Field()</span><br>    text = scrapy.Field()<br><br>    author = scrapy.Field()<br><br>    tags = scrapy.Field()<br></code></pre></td></tr></table></figure>
+
+<h3 id="解析Response"><a href="#解析Response" class="headerlink" title="解析Response"></a>解析Response</h3><p>前面的代码可以看到parse()方法的参数response时start_urls里面的链接爬取后的结果。</p>
+<p>所以在parse()方法中，我们可以直接对response变量包含的内容进行解析，从中可以得到网页源代码，找出结果中的链接而得到下一个请求。</p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13391876413/0" srcset="/img/loading.gif" lazyload alt="网页结构"></p>
+<p>查看<a target="_blank" rel="noopener" href="http://quotes.toscrape.com/%E7%9A%84%E7%BD%91%E9%A1%B5%E7%BB%93%E6%9E%84%E5%8F%AF%E4%BB%A5%E5%8F%91%E7%8E%B0%EF%BC%8C%E6%AF%8F%E4%B8%80%E9%A1%B5%E9%83%BD%E6%98%AF%E7%94%B1%E5%A4%9A%E4%B8%AAclass%E4%B8%BAquote%E7%9A%84%E5%8C%BA%E5%9D%97%E6%9E%84%E6%88%90%EF%BC%8C%E8%80%8C%E6%AF%8F%E4%B8%AA%E5%8C%BA%E5%9D%97%E5%8F%88%E5%8C%85%E5%90%ABtext%E3%80%81author%E3%80%81tags%E3%80%82%E9%82%A3%E4%B9%88%E5%8F%AF%E4%BB%A5%E5%85%88%E6%89%BE%E5%87%BAquote%E7%84%B6%E5%90%8E%E6%8F%90%E5%8F%96%E5%87%BA%E9%87%8C%E9%9D%A2%E7%9A%84%E5%86%85%E5%AE%B9">http://quotes.toscrape.com/的网页结构可以发现，每一页都是由多个class为quote的区块构成，而每个区块又包含text、author、tags。那么可以先找出quote然后提取出里面的内容</a></p>
+<h3 id="后续Request"><a href="#后续Request" class="headerlink" title="后续Request"></a>后续Request</h3><p>上面的操作实现了从初始页面抓取内容。下一页的内容由上一页抓取的内容构建下一个请求获得。</p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13392247059/0" srcset="/img/loading.gif" lazyload></p>
+<p>底部的Next按钮查看源代码后可以发现链接时/page/2，全链接就是：<a target="_blank" rel="noopener" href="https://quotes.toscrape.com/page/2%EF%BC%8C%E9%80%9A%E8%BF%87%E8%BF%99%E4%B8%AA%E9%93%BE%E6%8E%A5%E5%8F%AF%E4%BB%A5%E6%9E%84%E5%BB%BA%E4%B8%8B%E4%B8%80%E4%B8%AA%E8%AF%B7%E6%B1%82">https://quotes.toscrape.com/page/2，通过这个链接可以构建下一个请求</a></p>
+<ul>
+<li><p>scrapy.Request<br>构造请求时需要用到scrapy.Request,这里需要传递两个参数url、callback</p>
+<ul>
+<li>url: 要请求的链接</li>
+<li>callback: 回调函数。当指定了该回调函数的请求完成之后，获取到响应，引擎会将该响应作为参数传递给这个回调函数。回调函数进行解析或生成下一个请求，回调函数如parse()所示。</li>
+</ul>
+</li>
+<li><p>实际上parse()就是解析text、author、tags的方法。下一页的结构和第一页已经解析过的页面结构时一样的，所以可以复用代码。</p>
+</li>
+</ul>
+<p>利用选择器得到下一页链接并生成请求，在parse()方法后追加如下代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">next</span> = response.css(<span class="hljs-string">&#x27;.pager .next a::attr(&quot;href&quot;)&#x27;</span>).extract_first()<br>url = response.urljoin(<span class="hljs-built_in">next</span>)<br><span class="hljs-keyword">yield</span> scrapy.Request(url=url,callback = self.parse)<br></code></pre></td></tr></table></figure>
+
+<p>第一句代码首先通过CSS选择器获取下一个页面的链接，即要获取a超链接中的href属性。这里用到了::attr(href)操作。然后再调用extract_first方法获取内容。</p>
+<p>第二句代码调用了urljoin()方法,urljoin()方法可以将相对URL构造成绝对url。</p>
+<p>第三句代码通过url和callback变量构造了一个新的请求，回调函数callback依然使用parse()方法。这个请求完成后，响应会重新经过parse方法处理，得到第二页的解析结果。</p>
+<p>改写后的Spider类如下：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> scrapy<br><span class="hljs-keyword">from</span> tutorial.items <span class="hljs-keyword">import</span> TutorialItem<br><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">QuotesSpider</span>(<span class="hljs-params">scrapy.Spider</span>):</span><br>    name = <span class="hljs-string">&#x27;quotes&#x27;</span><br>    allowed_domains = [<span class="hljs-string">&#x27;quotes.toscrape.com&#x27;</span>]<br>    start_urls = [<span class="hljs-string">&#x27;http://quotes.toscrape.com/&#x27;</span>]<br><br>    <span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">parse</span>(<span class="hljs-params">self, response</span>):</span><br>        quotes = response.css(<span class="hljs-string">&#x27;.quote&#x27;</span>)<br><br>        <span class="hljs-keyword">for</span> quote <span class="hljs-keyword">in</span> quotes:<br>            item = TutorialItem()<br>            item[<span class="hljs-string">&#x27;text&#x27;</span>] = quote.css(<span class="hljs-string">&#x27;.text::text&#x27;</span>).extract_first()<br>            item[<span class="hljs-string">&#x27;author&#x27;</span>] = quote.css(<span class="hljs-string">&#x27;.author::text&#x27;</span>).extract_first()<br>            item[<span class="hljs-string">&#x27;tags&#x27;</span>] = quote.css(<span class="hljs-string">&#x27;.tags .tag::text&#x27;</span>).extract()<br>            <span class="hljs-keyword">yield</span> item<br>            <br>        <span class="hljs-built_in">next</span> = response.css(<span class="hljs-string">&#x27;.pager .next a::attr(&quot;href&quot;)&#x27;</span>).extract_first()<br>        url = response.urljoin(<span class="hljs-built_in">next</span>)<br>        <span class="hljs-keyword">yield</span> scrapy.Request(url=url,callback = self.parse)<br></code></pre></td></tr></table></figure>
+
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p><code>scrapy crawl quotes</code></p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13392814433/0" srcset="/img/loading.gif" lazyload></p>
+<p>scrapy首先会输出当前版本信息和正在启动的项目和一些配置情况</p>
+<ul>
+<li>抓取的数据<br><img src="https://inews.gtimg.com/newsapp_ls/0/13392818532/0" srcset="/img/loading.gif" lazyload></li>
+</ul>
+<h3 id="保存文件"><a href="#保存文件" class="headerlink" title="保存文件"></a>保存文件</h3><ul>
+<li>将结果保存为JSON文件</li>
+</ul>
+<p><code>scrapy crawl quotes -o quotes.json</code></p>
+<p>每一个Item输出一行JSON，输出后缀为jl，为jsonline的缩写：</p>
+<p><code>scrapy crawl quotes -o quotes.jl</code></p>
+<p>或：</p>
+<p><code>scrapy crawl quotes -o quotes.jsonlines</code></p>
+<p>输出格式还支持很多种，例如csv、xml、pickle、marshal等，还支持ftp、s3等远程传输，还可以通过自定义ItemExporter实现其他的输出</p>
+<p><code>scrapy crawl quotes -o quotes.csv</code><br><code>scrapy crawl quotes -o quotes.xml</code><br><code>scrapy crawl quotes -o quotes.pickle</code><br><code>scrapy crawl quotes -o quotes.marshal</code><br><code>scrapy crawl quotes -o ftp://user:pass@ftp.example.com/path/to/quotes.csv</code>  </p>
+<p>如果要输出到数据库，需要使用Item Pileline</p>
+<h2 id="使用Item-Pipeline"><a href="#使用Item-Pipeline" class="headerlink" title="使用Item Pipeline"></a>使用Item Pipeline</h2>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">Python网络爬虫</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/09/I-O%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">
+                        <span class="hidden-mobile">I/O输入输出</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>

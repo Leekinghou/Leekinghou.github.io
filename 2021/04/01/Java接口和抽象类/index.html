@@ -14,12 +14,11 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="对java的应用有了一些新想法，挑战3天回顾java语言基础
-😭清明节实在太累了 加多两天吧！">
+  <meta name="description" content="关于Java接口和抽象类">
   <meta name="author" content="Baikal &amp; Swan">
   <meta name="keywords" content="">
   
-  <title>Java基础(1) - lijinhao</title>
+  <title>Java接口和抽象类(3) - lijinhao</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -176,7 +175,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Java基础(1)">
+            <span class="h2" id="subtitle" title="Java接口和抽象类(3)">
               
             </span>
 
@@ -186,8 +185,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-03-31 00:08" pubdate>
-        March 31, 2021 am
+      <time datetime="2021-04-01 22:12" pubdate>
+        April 1, 2021 pm
       </time>
     </span>
   
@@ -198,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      492 字
+      557 字
     </span>
   
 
@@ -208,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      6
        分钟
     </span>
   
@@ -246,114 +245,37 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Java基础(1)</h1>
+            <h1 style="display: none">Java接口和抽象类(3)</h1>
             
             <div class="markdown-body">
-              <p>对java的应用有了一些新想法，挑战3天回顾java语言基础</p>
-<p>😭清明节实在太累了 加多两天吧！</p>
+              <p>关于Java接口和抽象类</p>
 <span id="more"></span>
 
-<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
-<li>四类八种  </li>
-</ul>
-<p>整数型：lisb：long、int、short、byte<br>占用字节大小空间为long &gt; int &gt; short &gt; byte</p>
-<p>浮点型：float、double</p>
-<p>字符型：char</p>
-<p>布尔型：boolean</p>
-<table>
-<thead>
-<tr>
-<th align="left">数据类型</th>
-<th align="left">内存</th>
-<th align="left">默认值</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">byte</td>
-<td align="left">8bits</td>
-<td align="left">0</td>
-</tr>
-<tr>
-<td align="left">short</td>
-<td align="left">16bits</td>
-<td align="left">0</td>
-</tr>
-<tr>
-<td align="left">int</td>
-<td align="left">32bits</td>
-<td align="left">0</td>
-</tr>
-<tr>
-<td align="left">long</td>
-<td align="left">64bits</td>
-<td align="left">0L</td>
-</tr>
-<tr>
-<td align="left">float</td>
-<td align="left">32bits</td>
-<td align="left">0.0f</td>
-</tr>
-<tr>
-<td align="left">double</td>
-<td align="left">64bits</td>
-<td align="left">0.0d</td>
-</tr>
-<tr>
-<td align="left">char</td>
-<td align="left">16bits</td>
-<td align="left">\u0000</td>
-</tr>
-<tr>
-<td align="left">boolean</td>
-<td align="left">8bits</td>
-<td align="left">false</td>
-</tr>
-</tbody></table>
-<ul>
-<li>类名应该首字母大写，包名应该尽量小写，方法名应该每个单词首字母大写  ֺ <ul>
-<li>例如MyFirstMethod()</li>
-</ul>
-</li>
-</ul>
-<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><ul>
-<li><p>加减乘除取余</p>
-</li>
-<li><p>比较</p>
-</li>
-<li><p>与或非</p>
-</li>
-</ul>
-<p><img src="https://inews.gtimg.com/newsapp_ls/0/13356486933/0" srcset="/img/loading.gif" lazyload alt="table"></p>
-<ul>
-<li><p>按位运算符</p>
-</li>
-<li><p>移位运算符</p>
-</li>
-<li><p>三元运算符<br>a？b:c</p>
-</li>
-</ul>
-<h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul>
-<li><p>if-else if-else  </p>
-</li>
-<li><p>switch多分支语句</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">switch</span> (week)&#123;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>		System.out.printLn(<span class="hljs-string">&quot;Monday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>		System.out.println(<span class="hljs-string">&quot;Tuesday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:<br>		System.out.println(<span class="hljs-string">&quot;Wednesday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:<br>		System.out.println(<span class="hljs-string">&quot;Thursday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:<br>		System.out.println(<span class="hljs-string">&quot;Friday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:<br>		System.out.println(<span class="hljs-string">&quot;Saturday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:<br>		System.out.println(<span class="hljs-string">&quot;Sunday&quot;</span>);<br>		<span class="hljs-keyword">break</span>;<br>	<span class="hljs-keyword">default</span>:<br>		System.out.println(<span class="hljs-string">&quot;No Else&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure></li>
-<li><p>循环语句  </p>
-</li>
-</ul>
-<p>for  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;j = i + <span class="hljs-number">10</span>;i &lt; t;i++,j = j * <span class="hljs-number">2</span>)&#123;&#125;<br></code></pre></td></tr></table></figure>
-<p>for-each.  </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> array[] =&#123;<span class="hljs-number">7</span>,<span class="hljs-number">8</span>,<span class="hljs-number">9</span>&#125;;<br><span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> arr : array) <br>&#123;<br>	System.out.println(arr);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="接口和抽象类"><a href="#接口和抽象类" class="headerlink" title="接口和抽象类"></a>接口和抽象类</h1><h2 id="接口（interface）"><a href="#接口（interface）" class="headerlink" title="接口（interface）"></a>接口（interface）</h2><p>接口相当于对外的约定和标准，操作系统产生的目的之一就是为了屏蔽软件的复杂性和硬件的简单性之间的差异，为软件提供统一的标准。</p>
+<p>用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Apple</span></span>&#123;&#125;<br></code></pre></td></tr></table></figure>
 
-<p>do-while()</p>
-<p>while</p>
+<p>接口的一些特性：   </p>
 <ul>
-<li>跳转语句<br>break强行退出当前循环</li>
+<li>接口不能被实例化，所以接口中不能有任何构造方法，你定义构造方法编译会出错。</li>
+<li>interface接口是一个完全抽象的类，没有实现任何方法，只是定义了方法。</li>
+<li>接口中只能使用两种访问修饰符：public-对整个项目可见，default-只有包访问权限</li>
+<li>只提供方法的定义，不实现方法，需要其他类<code>implements</code>后自己实现</li>
+<li>接口的实现必须实现接口的全部方法，否则必须定义为<code>抽象类</code></li>
+<li>一个借口可以被不同的类实现</li>
 </ul>
-<p>continue退出本次循环执行下一次循环</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Write</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">GoodJob</span></span>&#123;<br>	<span class="hljs-meta">@Override</span><br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">write</span><span class="hljs-params">()</span></span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;write write write&quot;</span>);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h2 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h2><p>抽象类是一种抽象能力弱于接口的类，关键词是<code>abstract</code>，如果接口是狗这个物种，抽象类可以说毛发是白色、狗的品种，而实现类可以是具体的类，比如是博美、拿破仑等。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Dog</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">FurColor</span><span class="hljs-params">()</span></span>;<br>&#125;<br><br><span class="hljs-keyword">abstract</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">WhiteDog</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Dog</span></span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">FurColor</span><span class="hljs-params">()</span></span>&#123;<br>		System.out.println(<span class="hljs-string">&quot;Fur is white&quot;</span>);<br>	&#125;<br>	<span class="hljs-function"><span class="hljs-keyword">abstract</span> <span class="hljs-keyword">void</span> <span class="hljs-title">SmallBody</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>在抽象类中</p>
 <ul>
-<li>经典流程控制：斐波那契数列<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Fibonacci</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-keyword">int</span> start = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> next = <span class="hljs-number">1</span>;<br>        System.out.println(start + <span class="hljs-string">&quot;、&quot;</span> + next + <span class="hljs-string">&quot;、&quot;</span>);<br><br>        <span class="hljs-comment">// 从3开始到第num哥斐波那契数</span><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">3</span>;i &lt;= <span class="hljs-number">12</span>; i++)&#123;<br>            <span class="hljs-keyword">int</span> last = start + next;<br>            System.out.println(last + <span class="hljs-string">&quot;、&quot;</span>);<br>            start = next;<br>            next = last;<br>        &#125;<br>        System.out.println();<br>        <span class="hljs-comment">//迭代计算，效率低</span><br><br>        <span class="hljs-keyword">for</span> (<span class="hljs-keyword">int</span> i = <span class="hljs-number">1</span>;i &lt;= <span class="hljs-number">12</span>;i++)&#123;<br>            System.out.println(getFibonacci(i) + <span class="hljs-string">&quot;、&quot;</span>);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getFibonacci</span><span class="hljs-params">(<span class="hljs-keyword">int</span> index)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(index == <span class="hljs-number">1</span> || index ==<span class="hljs-number">2</span>)&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> getFibonacci(index - <span class="hljs-number">1</span>) + getFibonacci(index - <span class="hljs-number">2</span>);<br>    &#125;<br>&#125;<br><br></code></pre></td></tr></table></figure>
-实际上还可以用线性代数的知识解决上述问题：<br><a href="url">https://www.zhihu.com/question/28062458/answer/39763094</a></li>
+<li>如果一个类中有抽象方法，那么这个类一定是抽象类，也就是说，使用关键字<code>abstract</code>修饰的方法一定是抽象方法，具有抽象方法的类一定是抽象类</li>
+<li>实现类方法中只有方法具体的实现</li>
+<li>抽象类中不一定只有抽象方法，抽象类中也可以有具体的方法，你可以自己去选择是否实现这些方法</li>
+<li>抽象类中的约束不像接口那么严格，你可以在抽象类中定义<code>构造方法、抽象方法、普通属性、方法、静态属性和静态方法</code></li>
+<li>抽象类和接口一样不能被实例化，实例化只能实例化具体的类</li>
 </ul>
 
             </div>
@@ -389,9 +311,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/04/01/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                      <a href="/2021/04/02/Java%E5%BC%82%E5%B8%B8/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java面向对象(2)</span>
+                        <span class="hidden-mobile">Java异常(5)</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -399,8 +321,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/03/30/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">
-                        <span class="hidden-mobile">零基础使用hexo搭建博客</span>
+                      <a href="/2021/04/01/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">
+                        <span class="hidden-mobile">Java面向对象(2)</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
