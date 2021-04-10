@@ -1,0 +1,553 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="https://inews.gtimg.com/newsapp_ls/0/13372468765/0">
+  <link rel="icon" href="https://inews.gtimg.com/newsapp_ls/0/13372468765/0">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Scrapy提供的数据提取方法——Selector选择器，类似BeautifulSoup、pyquery以及正则表达式">
+  <meta name="author" content="Baikal &amp; Swan">
+  <meta name="keywords" content="">
+  
+  <title>Scrapy组件 - lijinhao</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":"4jerH08HcirkoizcHRl5Vxkv-gzGzoHsz","app_key":"igG3w08CQrEmtUg0pTLSyrup","server_url":"https://4jerh08h.lc-cn-n1-shared.com"}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Baikal's blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/MyTree/">
+                <i class="iconfont icon-addrcard"></i>
+                MyTree
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://pic.iask.cn/fimg/831492611394.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Scrapy组件">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-10 13:43" pubdate>
+        April 10, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.1k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      15
+       分钟
+    </span>
+  
+
+  
+  
+    
+      <!-- 不蒜子统计文章PV -->
+      <span id="busuanzi_container_page_pv" style="display: none">
+        <i class="iconfont icon-eye" aria-hidden="true"></i>
+        <span id="busuanzi_value_page_pv"></span> 次
+      </span>
+    
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Scrapy组件</h1>
+            
+            <div class="markdown-body">
+              <p>Scrapy提供的数据提取方法——Selector选择器，类似BeautifulSoup、pyquery以及正则表达式</p>
+<span id="more"></span>
+
+<h1 id="Selector-使用方法"><a href="#Selector-使用方法" class="headerlink" title="Selector 使用方法"></a>Selector 使用方法</h1><h2 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> scrapy <span class="hljs-keyword">import</span> Selector<br><br>body = <span class="hljs-string">&#x27;&lt;html&gt;&lt;body&gt;&lt;head&gt;&lt;title&gt;Hello World&lt;/title&gt;&lt;/head&gt;&lt;/body&gt;&lt;html&gt;&#x27;</span><br>selector = Selector(text=body)<br>title = selector.xpath(<span class="hljs-string">&#x27;//title/text()&#x27;</span>).extract_first()<br><span class="hljs-built_in">print</span>(title)<br></code></pre></td></tr></table></figure>
+<h2 id="Scrapy-shell"><a href="#Scrapy-shell" class="headerlink" title="Scrapy shell"></a>Scrapy shell</h2><p>爬取官方文档：<a target="_blank" rel="noopener" href="https://doc.scrapy.org/en/latest/_static/selectors-sample1.html">https://doc.scrapy.org/en/latest/_static/selectors-sample1.html</a></p>
+<p>Selector使用时是与Scrapy结合使用的，如在Scrapy的回调函数中的参数response直接调用xpath()、css()提取数据，所以借助scrapy shell提取数据模拟scrapy请求的过程</p>
+<p><code>scrapy shell https://doc.scrapy.org/en/latest/_static/selectors-sample1.html</code></p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13394568550/0" srcset="/img/loading.gif" lazyload><br>关注最后的一些可进行的操作：<br><img src="https://inews.gtimg.com/newsapp_ls/0/13394591969/0" srcset="/img/loading.gif" lazyload><br>这个过程相当于Scrapy向URL发起了一次请求，然后传回一些可操作的变量，如request、response等</p>
+<h2 id="XPath-选择器"><a href="#XPath-选择器" class="headerlink" title="XPath 选择器"></a>XPath 选择器</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">base</span> <span class="hljs-attr">href</span> = <span class="hljs-string">&#x27;http://example.com/ /&gt;</span></span><br><span class="hljs-tag"><span class="hljs-string">&lt;title&gt;Example website&lt;/title&gt;</span></span><br><span class="hljs-tag"><span class="hljs-string">&lt;/head&gt;</span></span><br><span class="hljs-tag"><span class="hljs-string">&lt;body&gt;</span></span><br><span class="hljs-tag"><span class="hljs-string">&lt;div id=&#x27;</span><span class="hljs-attr">images</span>&#x27;&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&#x27;imge1.html&#x27;</span>&gt;</span>Name: My image 1 <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;image1_thumb.jpg&#x27;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&#x27;imge2.html&#x27;</span>&gt;</span>Name: My image 2 <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;image2_thumb.jpg&#x27;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&#x27;imge3.html&#x27;</span>&gt;</span>Name: My image 3 <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;image3_thumb.jpg&#x27;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&#x27;imge4.html&#x27;</span>&gt;</span>Name: My image 4 <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;image4_thumb.jpg&#x27;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&#x27;imge5.html&#x27;</span>&gt;</span>Name: My image 5 <span class="hljs-tag">&lt;<span class="hljs-name">br</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">img</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&#x27;image5_thumb.jpg&#x27;</span> /&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+<p><code>&gt;&gt;&gt; result = response.selector.xpath(&#39;//a&#39;)</code></p>
+<p>从提取的结果(a节点)中再次提取img节点：</p>
+<p><code>&gt;&gt;&gt; result.xpath(&#39;./img&#39;)</code></p>
+<p>选择器的最前面加“.”，表示提取元素内部的数据，如果没有加点，则代表从根节点开始提取。此处我们用了./img的提取方式，则代表从a节点里提取，如果用//img,则还是从html节点中提取</p>
+<p>以上得到的是SelectorList类型的变量，是一个由Selector对象组成的列表。所以可以用<code>&gt;&gt;&gt; result[0]</code>单独索引某个元素</p>
+<p>但是以上得到的内容都是列表类型，都不是真正的文本内容，为了得到文本，还需要：<br><code>&gt;&gt;&gt; result.extract()</code></p>
+<p>搭配XPath()表达式，可以选取节点的内部文本和属性</p>
+<p><code>&gt;&gt;&gt; response.xpath(&#39;//a/text()&#39;).extract()</code></p>
+<p><code>&gt;&gt;&gt; response.xpath(&#39;//a/@href&#39;).extract()</code></p>
+<h2 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h2><ul>
+<li><h2 id="正则匹配"><a href="#正则匹配" class="headerlink" title="正则匹配"></a>正则匹配</h2></li>
+<li><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>Selector包括了两个常用的选择器和正则匹配，合理使用Selector可以提高数据提取效率。</li>
+</ul>
+<h1 id="Spider-用法"><a href="#Spider-用法" class="headerlink" title="Spider 用法"></a>Spider 用法</h1><p>Spider：配置抓取网站的链接、抓取逻辑、解析逻辑</p>
+<h2 id="运行流程"><a href="#运行流程" class="headerlink" title="运行流程"></a>运行流程</h2><ul>
+<li>Spider要做的就两件事情：  </li>
+</ul>
+<ol>
+<li>定义爬取网站的动作</li>
+<li>分歧爬取的内容</li>
+</ol>
+<ul>
+<li>爬取过程：</li>
+</ul>
+<ol>
+<li>Request初始的URL，并设置回调函数。当Request成功时，Response生成作为参数传递给该回调函数</li>
+<li>在回调函数内分析网页内容，返回结果由两种方式：<ul>
+<li>解析到的有效结果返回字典或Item对象,可以直接保存</li>
+<li>另一种是解析得到下一个链接，可以利用此链接构造Request并设置新的回调函数</li>
+</ul>
+</li>
+<li>如果返回的是字典或者Item对象，我们可以通过Feed Exports等组件将结果存入文件。如果设置了Pipeline的话，我们可以使用Pipeline处理并保存</li>
+<li>如果返回的是Request，那么执行后得到的Response会被传递到Request中定义的回调函数，再次分析生成Item</li>
+</ol>
+<p>以上几步循环往复，可以完成站点的爬取</p>
+<h2 id="Spider类"><a href="#Spider类" class="headerlink" title="Spider类"></a>Spider类</h2><ul>
+<li>name = ‘quotes’  # 爬虫的名字</li>
+<li>allowed_domains = [‘quotes.toscrape.com’] # 可选配置，不在此列的链接不会被跟进爬取</li>
+<li>start_urls = [‘<a target="_blank" rel="noopener" href="http://quotes.toscrape.com/&#39;]">http://quotes.toscrape.com/&#39;]</a> # 起始URL</li>
+<li>custom_settings =   # 是一个字典，专属于本Spider的配置，设置会覆盖全局设置，必须在初始化前更新，必须定义成类变量</li>
+<li>crawler =           # 是在pipeline.py的from_crawler() 方法设置的，代表的是本Spider类对应的Crawler对象，可以用来获取setting的信息</li>
+<li>settings 全局设定</li>
+<li>start_requests()用于生成初始请求，必须返回一个可迭代对象，默认使用Get方法。如果想使用Post方法，只需要重写这个方法，发送POST请求时使用FormRequest即可</li>
+<li>parse() 当Response没有指定回调函数时，本方法默认被调用，负责处理Response，处理返回结果，需要返回一个包含Request和Item的可迭代对象</li>
+<li>close() 释放资源</li>
+</ul>
+<h1 id="Downloader-Middleware-用法"><a href="#Downloader-Middleware-用法" class="headerlink" title="Downloader Middleware 用法"></a>Downloader Middleware 用法</h1>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">Python网络爬虫</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/04/09/Scrapy%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/">
+                        <span class="hidden-mobile">Scrapy框架的使用</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      $('#local-search-input').on('click', function() {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      });
+      $('#modalSearch').on('shown.bs.modal', function() {
+        $('#local-search-input').focus();
+      });
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({"theme":"default"});
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+</body>
+</html>
