@@ -14,7 +14,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   
   <meta name="theme-color" content="#2f4154">
-  <meta name="description" content="">
+  <meta name="description" content="Downloader Middleware和Spider Middleware">
   <meta name="author" content="Baikal &amp; Swan">
   <meta name="keywords" content="">
   
@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      747 字
+      748 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      9
        分钟
     </span>
   
@@ -249,7 +249,7 @@
             
             <div class="markdown-body">
               <p>Downloader Middleware和Spider Middleware</p>
-<!--- more --->
+<span id="more"></span>
 
 <h1 id="Downloader-Middleware-用法"><a href="#Downloader-Middleware-用法" class="headerlink" title="Downloader Middleware 用法"></a>Downloader Middleware 用法</h1><ul>
 <li>Downloader Middleware是处于Scrapy获得Request和Response之间的处理模块</li>
@@ -262,9 +262,11 @@
 <li>在下载后生成的Response发送给Spider之前对其进行修改</li>
 </ol>
 <p>作用：<br>修改User-Agent、处理重定向、设置代理、失败重试、设置Cookies等功能</p>
-<p>Scrapy提供了大量的Downloader Middleware<br><img src="https://inews.gtimg.com/newsapp_ls/0/13395246035/0" srcset="/img/loading.gif" lazyload><br>键值越小代表越靠近Scrapy引擎，键值越大代表越靠近Downloader，数字越小的Downloader Middleware调用优先级越高</p>
+<p>Scrapy提供了大量的Downloader Middleware</p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13395246035/0" srcset="/img/loading.gif" lazyload></p>
+<p>键值越小代表越靠近Scrapy引擎，键值越大代表越靠近Downloader，数字越小的Downloader Middleware调用优先级越高</p>
 <p>⚠️如果要添加自己定义的Downloader Middleware到项目里，不能直接修改上面这个<code>D0WNLOADER_MIDDLEWARES_BASE</code>,要修改Scrapy提供的另一个变量<code>D0WNLOADER_MIDDLEWARES</code>并禁用<code>D0WNLOADER_MIDDLEWARES_BASE</code>里的变量</p>
-<p>##核心方法<br>Scrapy内置的Downloader Middleware为Scrapy提供了基础的功能，但在项目中我们往往需要单独定义Downloader Middleware。这个过程非常简单，只需要实现某几个方法即可。每个Downloader Middleware都定义了一个或多个方法的类，核心的方法有如下三个。</p>
+<h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p>Scrapy内置的Downloader Middleware为Scrapy提供了基础的功能，但在项目中我们往往需要单独定义Downloader Middleware。这个过程非常简单，只需要实现某几个方法即可。每个Downloader Middleware都定义了一个或多个方法的类，核心的方法有如下三个。</p>
 <p>middleware.py中的class TutorialDownloaderMiddleware的三个方法：</p>
 <ul>
 <li>process_request(request,spider)</li>
@@ -272,7 +274,15 @@
 <li>process_exception(request,exception,spider)</li>
 </ul>
 <p>只需要实现至少一个方法，就可以定义一个Downloader Middleware</p>
-<h3 id="process-request-request-spider"><a href="#process-request-request-spider" class="headerlink" title="process_request(request,spider)"></a>process_request(request,spider)</h3><h3 id="process-response-request-response-spider"><a href="#process-response-request-response-spider" class="headerlink" title="process_response(request,response,spider)"></a>process_response(request,response,spider)</h3><h3 id="process-exception-request-exception-spider"><a href="#process-exception-request-exception-spider" class="headerlink" title="process_exception(request,exception,spider)"></a>process_exception(request,exception,spider)</h3><h1 id="Spider-Middleware-用法"><a href="#Spider-Middleware-用法" class="headerlink" title="Spider Middleware 用法"></a>Spider Middleware 用法</h1><ul>
+<ul>
+<li><p>process_request(request,spider)</p>
+</li>
+<li><p>process_response(request,response,spider)</p>
+</li>
+<li><p>process_exception(request,exception,spider)</p>
+</li>
+</ul>
+<h1 id="Spider-Middleware-用法"><a href="#Spider-Middleware-用法" class="headerlink" title="Spider Middleware 用法"></a>Spider Middleware 用法</h1><ul>
 <li>Spider Middleware是介入到Scrapy的Spider处理机制的框架</li>
 </ul>
 <h2 id="作用位置"><a href="#作用位置" class="headerlink" title="作用位置"></a>作用位置</h2><p>当Downloader生成Response之后，Response会被发送给Spider,在发送给Spider之前，Response会首先经过Spider Middleware处理，当Spider处理生成Item和Request之后，Item和Request还会经过Spider Middleware的处理。</p>
@@ -286,7 +296,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">SPIDER_MIDDLEWARES_BASE = <br>&#123;<br>	<span class="hljs-string">&#x27;scrapy.spidermiddlewares.httperror.HttpErrorMiddlewareapos&#x27;</span>:<span class="hljs-number">50</span><br>	<span class="hljs-string">&#x27;scrapy.spidermiddlewares.offsite.0ffsiteMiddleware&#x27;</span>:<span class="hljs-number">500</span>,<br>	<span class="hljs-string">&#x27;scrapy.spidermiddlewares.referer.RefererMiddleware&#x27;</span>:<span class="hljs-number">700</span>,<br>	<span class="hljs-string">&#x27;scrapy.spidermiddlewares.urllength.UrlLengthMiddleware&#x27;</span>:<span class="hljs-number">800</span>,<br>	<span class="hljs-string">&#x27;scrapy.spidermiddlewares.depth.DepthMiddleware&#x27;</span>:<span class="hljs-number">900</span>,<br>&#125;<br></code></pre></td></tr></table></figure>
 
 <p>和Downloader Middleware一样，Spider Middleware首先加入到SPIDER_MIDDLEWARES设置中，该设置会和Scrapy中SPIDER_MIDDLEWARES_BASE定义的Spider Middleware合并。然后根据键值的数字优先级排序，得到一个有序列表。第一个Middleware是最靠近引擎的，最后一个Middleware是最靠近Spider的。</p>
-<h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p>Scrapy内置的Spider Middleware为Scrapy提供了基础的功能。如果我们想要扩展其功能，只需要实现某几个方法即可。<br>每个Spider Middleware都定义了以下一个或多个方法的类，核心方法有如下4个。</p>
+<h2 id="核心方法-1"><a href="#核心方法-1" class="headerlink" title="核心方法"></a>核心方法</h2><p>Scrapy内置的Spider Middleware为Scrapy提供了基础的功能。如果我们想要扩展其功能，只需要实现某几个方法即可。<br>每个Spider Middleware都定义了以下一个或多个方法的类，核心方法有如下4个。</p>
 <ul>
 <li>process_spider_input(response,spider)。</li>
 <li>process_spider_output(response,result,spider)。</li>
