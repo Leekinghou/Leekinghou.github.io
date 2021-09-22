@@ -1,740 +1,301 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  
-  
-  <title>Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Hexo</title><meta name="author" content="John Doe"><meta name="copyright" content="John Doe"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="website">
 <meta property="og:title" content="Hexo">
 <meta property="og:url" content="http://example.com/page/2/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/page/2/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hexo',
+  isPost: false,
+  isHome: true,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2021-09-22 12:33:02'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
   
-  
-    <link rel="shortcut icon" href="/favicon.png">
-  
-  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
     
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
-
-  
-  
-<link rel="stylesheet" href="/css/style.css">
-
-  
-    
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
-
-  
-<meta name="generator" content="Hexo 5.4.0"></head>
-
-<body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">Hexo</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
         
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
-      </div>
-    </div>
-  </div>
-</header>
-
-      <div class="outer">
-        <section id="main">
-  
-    <article id="post-注解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/09/%E6%B3%A8%E8%A7%A3/" class="article-date">
-  <time class="dt-published" datetime="2021-04-08T16:02:37.000Z" itemprop="datePublished">2021-04-09</time>
-</a>
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
     
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/09/%E6%B3%A8%E8%A7%A3/">注解</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/09/%E6%B3%A8%E8%A7%A3/" data-id="cktuzinrj0013d2oqgt404usy" data-title="注解" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-反射" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/09/%E5%8F%8D%E5%B0%84/" class="article-date">
-  <time class="dt-published" datetime="2021-04-08T16:02:23.000Z" itemprop="datePublished">2021-04-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/09/%E5%8F%8D%E5%B0%84/">反射</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/09/%E5%8F%8D%E5%B0%84/" data-id="cktuzinri000td2oq1rfk7l91" data-title="反射" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-泛型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/09/%E6%B3%9B%E5%9E%8B/" class="article-date">
-  <time class="dt-published" datetime="2021-04-08T16:02:13.000Z" itemprop="datePublished">2021-04-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/09/%E6%B3%9B%E5%9E%8B/">泛型</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/09/%E6%B3%9B%E5%9E%8B/" data-id="cktuzinrj000zd2oqg0djgkjm" data-title="泛型" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-容器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/09/%E5%AE%B9%E5%99%A8/" class="article-date">
-  <time class="dt-published" datetime="2021-04-08T16:01:59.000Z" itemprop="datePublished">2021-04-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/09/%E5%AE%B9%E5%99%A8/">容器</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/09/%E5%AE%B9%E5%99%A8/" data-id="cktuzinrl001bd2oqg9sva32w" data-title="容器" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/08/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2021-04-08T10:58:06.000Z" itemprop="datePublished">2021-04-08</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/08/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/08/hello-world/" data-id="cktuza2xo00000eoq3ubr8k5a" data-title="Hello World" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-集合框架" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/03/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" class="article-date">
-  <time class="dt-published" datetime="2021-04-03T15:01:36.000Z" itemprop="datePublished">2021-04-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/03/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/">集合框架</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h1><p>集合在我们的日常开发中所使用的次数简直太多了，你已经把它们都用的熟透了，但是作为一名合格的程序员，你不仅要了解它的基本用法，你还要了解它的源码；存在即合理，你还要了解它是如何设计和实现的，你还要了解它的衍生过程。<br>这篇博客就来详细介绍一下 Collection这个庞大集合框架的家族体系和成员，让你了解它的设计与实现。</p>
-<p>是时候祭出这张神图了</p>
-<p><img src="https://inews.gtimg.com/newsapp_ls/0/13377058471/0" alt="Collection集合框架"></p>
-<p>爷爷辈接口——<strong>Iterator</strong></p>
-<h2 id="Iterable-接口"><a href="#Iterable-接口" class="headerlink" title="Iterable 接口"></a>Iterable 接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">List&lt;Object&gt; list = <span class="keyword">new</span> ArrayList();</span><br><span class="line"><span class="keyword">for</span>(Object obj : list)&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<p>除了实现此接口的对象外，数组也可以用for-each循环遍历：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Object[] list = <span class="keyword">new</span> Object[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">for</span>(Object obj : list)&#123;&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="顶层接口"><a href="#顶层接口" class="headerlink" title="顶层接口"></a>顶层接口</h2><p><code>Collection</code>是一个顶层接口，主要用来定义集合的约定</p>
-<p><code>List</code>接口也是一个顶层接口，继承了Collection，同时也是<code>ArrayList</code>、<code>LinkedList</code>等集合元素的父类</p>
-<p><code>Set</code>接口与List接口同级别，也继承了Collection，提供了额外的规定。对add、equals、hashCode方法提供了额外的标准。</p>
-<p><code>Queue</code>是List、Set接口以外的Collection的三大接口之一。Queue的设计用来在处理之前保持元素的访问次序。除了Collection基础的操作之外，队列提供了额外的插入，读取，检查操作。</p>
-<p><code>SortedSet</code>接口直接继承于Set接口，使用<code>Comparable</code>对元素进行自然排序或者使用<code>Comparator</code>在<br>创建时对元素提供定制的排序规则。set的迭代器将按升序元素顺序遍历集合。</p>
-<p><code>Map</code>是一个支持<code>key-value</code>存储的对象，Map不能包含重复的key,每个键最多映射一个值。这个接口代替了Dictionary类，Dictionary是一个抽象类而不是接口。</p>
-<h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p>ArrayList 是实现了List接口的可扩容数组(动态数组)，内部是在数组的基础上实现的</p>
-<p>ArrayList可以替代Vector，但是ArrayList不是线程安全的容器。当有多个线程中至少有两个修改了ArrayList的结构，就会导致线程安全问题， 可以使用线程安全的List替代：</p>
-<p><code>Collections.synchronizedList</code></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">线程安全：当多个线程访问某个方法时，不管通过怎样的调用方式或者无论线程如何交替的执行，在主程序中不需要去做任何的同步，这个类的结果行为都是我们设想的正确行为，那么我们就可以说这个类是线程安全的</span><br></pre></td></tr></table></figure>
-
-
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/42719755">什么是线程安全-知乎回答</a></p>
-<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000038320670">4种解决线程安全问题的方式</a></p>
-<p>ArrayList支持fail-fast机制</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fail-fast 机制是Java集合(Collection)中的一种错误机制。 在用迭代器遍历一个集合对象时，如果遍历过程中对集合对象的结构进行了修改（增加、删除），则会抛出Concurrent Modification Exception（并发修改异常）</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://juejin.cn/post/6879291161274482695">什么是fail-fast机制</a></p>
-<h3 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h3><p>ArrayList内部是在数组的基础上实现的,Vector是一个线程安全的容器，对内部每个方法，避免出现线程安全问题的解决方法都是直接加锁。</p>
-<p>这种方法的缺点是同步开销大，访问效率远低于ArrayList</p>
-<p>在扩容时ArrayList扩容后数组长度只增加50%，而Vector的扩容会扩大一倍长度。</p>
-<h3 id="LinkedList类"><a href="#LinkedList类" class="headerlink" title="LinkedList类"></a>LinkedList类</h3><pre><code>-  LinkedList是一个双向链表，允许存储任何元素(包括null)，它有以下特性：  
-    - LinkedList所有操作都是双向的，索引到链表的操作将遍历从头到尾，从距离近的那一头开始遍历
-    - 只有这个链表外部加锁后，通过LinkedList实现的方法才是线程安全的，如果多个线程并发访问链表，并且至少其中一个线程修改了链表结构，这个链表必须进行外部加锁，或者使用：
-</code></pre>
-<p><code>List list = Collections.synchronizedList(new LinkedList(...))</code></p>
-<h3 id="Stack"><a href="#Stack" class="headerlink" title="Stack"></a>Stack</h3><p>stack-堆栈，是后入先出容器。继承了Vector类，提供了通常用的push和pop操作，以及在栈顶的peek方法，测试stack是否为空的empty方法，和一个寻找与栈顶距离的search方法</p>
-<p>第一次创建栈，不包含任何元素。一个更完善，可靠性更强的LIFO栈操作由Deque接口和他的实现提供：</p>
-<p><code>Deque&lt;Integer&gt; stack = new ArrayDeque&lt;Integer&gt;()</code></p>
-<h3 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h3><p>HashSet是Set接口的实现类，由哈希表支持（实际上HashSet是HashMap的一个实例），不能保证集合的迭代顺序，允许有null元素<br>    - 这个实现不是线程安全的<br>    - 需要外部加锁，或者使用Collections.synchronizedSet()方法重写<br>    - 支持fail-fast机制</p>
-<p>等等</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/03/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" data-id="cktuzinrk0018d2oq0se1hufp" data-title="集合框架" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">java语言基础</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Java异常" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/02/Java%E5%BC%82%E5%B8%B8/" class="article-date">
-  <time class="dt-published" datetime="2021-04-02T06:35:58.000Z" itemprop="datePublished">2021-04-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/02/Java%E5%BC%82%E5%B8%B8/">Java异常(5)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><p>异常是程序经常会出现的，发现错误的最佳时机是在编译阶段，也就是你试图在运行程序之前。但是，在编译期间并不能找到所有的错误：</p>
-<p><code> NullPointelrException</code>和<code>ClassNotFoundException 异常</code></p>
-<p>在编译期找不到，这些异常是RuntimeException运行时异常，这些异常往往在运行时才能被发现。</p>
-<p>Java程序经常会出现两种问题，<code>java.lang.Exception和java.lang.Error</code>都用来表示出现了异常情况：</p>
-<h2 id="认识-Exception"><a href="#认识-Exception" class="headerlink" title="认识 Exception"></a>认识 Exception</h2><p><code>Exception</code>位于<code>java.lang</code>包下，它是一种顶级接口，继承于<code>Throwable</code>类，Exception类及其子类都是<code>Throwable</code>的组成条件，是程序出现的合理情况。<br>在认识 Exception之前，有必要先了解一下什么是Throwable。</p>
-<h2 id="什么是Throwable"><a href="#什么是Throwable" class="headerlink" title="什么是Throwable"></a>什么是Throwable</h2><p>Throwable类是Java语言中所有错误（errors)和异常（exceptions)的父类。只有继承于<br>Throwable 的类或者其子类才能够被抛出，还有一种方式是带有 Java 中的 <code>@throw </code>注解的类也可以<br>抛出。</p>
-<p>✨java规范中，对非受查异常和受查异常的定义是这样的：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The unchecked exception classes are the run-time exception classes and the error classes</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The checked exception classes are all exception classes other than the unchecked exception</span><br><span class="line">classes. That is, the checked exception classes are Throwable and all its subclasses other</span><br><span class="line">than RuntimeException and its subclasses and Error and its subclasses.</span><br></pre></td></tr></table></figure>
-<ul>
-<li>也就是说，除了 RuntimeException和其子类，以及error和其子类，其它的所有异常都是checkedException</li>
-</ul>
-<p><img src="https://inews.gtimg.com/newsapp_ls/0/13374153956/0" alt="Throwable及其子类"></p>
-<ul>
-<li>Throwable类中的方法和属性很多，只讨论其中几个比较常用的</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回抛出异常的详细信息</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> string <span class="title">getMessage</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> string <span class="title">getLocalizedMessage</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//返回异常发生时的简要描述</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//打印异常信息到标准输出流上</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStackTrace</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStackTrace</span><span class="params">(PrintStream s)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStackTrace</span><span class="params">(PrintWriter s)</span></span></span><br><span class="line"><span class="function"><span class="comment">//记录栈帧的的当前状态</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> Throwable <span class="title">fillInStackTrace</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>此外，因为Throwable的父类也是Object,所以常用的方法还有继承其父类的getCLass()和getName()方法。</li>
-</ul>
-<p>⚠️ 在参加面试时可能会遇到让你举出几个常见的异常并将其分类的问题<br>RuntimeException</p>
-<p><img src="https://inews.gtimg.com/newsapp_ls/0/13374158064/0" alt="RuntimeException"></p>
-<p>UncheckedException<br><img src="https://inews.gtimg.com/newsapp_ls/0/13374159915/0" alt="UncheckedException"></p>
-<p>在Java中是如何处理这些异常的呢？主要通过以下几个关键字：  </p>
-<h3 id="throws-throw"><a href="#throws-throw" class="headerlink" title="throws-throw"></a>throws-throw</h3><h3 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try-catch-finally"></a>try-catch-finally</h3><p>在Java中，<code>异常也就是一个对象</code>，它能够被程序员自定义抛出或者应用程序抛出，必须借助于<code>throws和throw语句</code>来定义抛出异常。<br>throws和throw通常是成对出现的，例如:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cacheException</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> Exception();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>throw 语句用在方法体内，表示抛出异常，由方法体内的语句处理。throws 语句用在实现方法名后面，表示再抛出异常，由该方法的调用者来处理。</li>
-<li>throws主要是声明这个方法会抛出这种类型的异常，使它的调用者知道要捕获这个异常。throw是具体向外抛异常的动作，所以它是抛出一个异常实例。</li>
-</ul>
-<h3 id="try、finally、catch"><a href="#try、finally、catch" class="headerlink" title="try、finally、catch"></a>try、finally、catch</h3><p>这三个关键字主要有下面几种组合方式<code> try...catch</code>、<code>try...finally</code>、<code>try...catch...finally</code></p>
-<p><code>try...catch</code>表示对某一段代码可能抛出异常进行的捕获，如下：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cacheException</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">	&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>try...finally</code>表示对一段代码不管执行情况如何，都会走finally中的代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cacheException</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;enter:i=&quot;</span>+i);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;execute:i=&quot;</span>+i);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;leave:i=&quot;</span>+i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><code>try...catch...finally</code> 也是一样的，表示对异常捕获后，再走 finally 中的代码逻辑</p>
-<h2 id="什么是Error"><a href="#什么是Error" class="headerlink" title="什么是Error"></a>什么是Error</h2><p>Error是程序无法处理的错误，表示运行应用程序中较严重问题。大多数错误与代码编写者执行的操作<br>无关，而表示代码运行时JVM(Java虚拟机）出现的问题。</p>
-<p>这些错误是不可检查的，因为它们在应用程序的控制和处理能力之外，而且绝大多数是程序运行时不允许出现的状况，比如<br><code>OutofMemoryError </code>和 <code>StackOverflowError</code> 异常的出现会有几种情况，这里需要先介绍一下Java内存模型JDK1.7</p>
-<p><img src="https://inews.gtimg.com/newsapp_ls/0/13377012028/0" alt="Java内存模型JDK1.7"></p>
-<p>其中包括两部分:<br>由所有<code>线程共享的数据区</code>和<code>线程隔离的数据区</code><br>在上面的Java内存模型中，只有<code>程序计数器</code>是不会发生 <code>OutOfMemoryError</code>情况的区域，程序计数器控制着计算机指令的分支、循环、跳转、异常处理和线程恢复，并且程序计数器是每个线程私有的</p>
-<p><code>什么是线程私有：表示的就是各条线程之间互不影响，独立存储的内存区</code></p>
-<p>如果应用程序执行的是Java方法，那么这个计数器记录的就是<code>虚拟机字节码</code>指令的地址；<br>如果正在执行的是Native方法，那么计数器值为空（Undefined）</p>
-<p>除了程序计数器外，其他区域：<code>方法区（Method Area)</code>、<code>虚拟机栈（VM Stack)</code>、<code>本地方法栈(Native Method Stack)</code>和<code>堆（Heap)</code>都是可能发生<code>OutOfMemoryError</code>的区域。</p>
-<ul>
-<li><p>虚拟机栈：如果线程请求的栈深度大于虚拟机栈所允许的深度，将会出现StackoverflowError 异常；如果虚拟机动态扩展无法申请到足够的内存，将出现OutOfMemoryError。</p>
-</li>
-<li><p>本地方法栈和虚拟机栈一样</p>
-<ul>
-<li>堆：Java堆可以处于物理上不连续，逻辑上连续，就像我们的磁盘空间一样，如果堆中没有内存完成实例分配，并且堆无法扩展时，将会抛出OutOfMemoryError。</li>
-<li>方法区：方法区无法满足内存分配需求时，将抛出OutOfMemoryError异常。</li>
-</ul>
-</li>
-<li><p>在Java中，你可以把异常理解为是一种能够提高你程序健壮性的机制，它能够让你在编写代码中注意这些问题，也可以说，如果你写代码不会注意这些异常情况，你是无法成为一位硬核程序员的。</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/02/Java%E5%BC%82%E5%B8%B8/" data-id="cktuzinrc0005d2oq7ii42v46" data-title="Java异常(5)" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">Java语言基础</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Java接口和抽象类" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/01/Java%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB/" class="article-date">
-  <time class="dt-published" datetime="2021-04-01T14:12:16.000Z" itemprop="datePublished">2021-04-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/01/Java%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB/">Java接口和抽象类(3)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>关于Java接口和抽象类</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/04/01/Java%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/01/Java%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB/" data-id="cktuzinre000ad2oqcfeibubq" data-title="Java接口和抽象类(3)" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">Java语言基础</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-Java面向对象" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/04/01/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" class="article-date">
-  <time class="dt-published" datetime="2021-04-01T01:11:07.000Z" itemprop="datePublished">2021-04-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/04/01/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/">Java面向对象(2)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>关于 Java面向对象(2)</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/04/01/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/04/01/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" data-id="cktuzinrd0006d2oqdrr90zd0" data-title="Java面向对象(2)" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">Java语言基础</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-java基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/03/31/java%E5%9F%BA%E7%A1%80/" class="article-date">
-  <time class="dt-published" datetime="2021-03-30T16:08:04.000Z" itemprop="datePublished">2021-03-31</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Java/">Java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2021/03/31/java%E5%9F%BA%E7%A1%80/">Java基础(1)</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>对java的应用有了一些新想法，挑战3天回顾java语言基础</p>
-<p>😭清明节实在太累了 加多两天吧！</p>
-        
-          <p class="article-more-link">
-            <a href="/2021/03/31/java%E5%9F%BA%E7%A1%80/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/03/31/java%E5%9F%BA%E7%A1%80/" data-id="cktuzinrk0015d2oqdb5p9uhd" data-title="Java基础(1)" class="article-share-link">Share</a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">Java语言基础</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
-  </nav>
-
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git使用方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%9F%BA%E7%A1%80/" rel="tag">Git基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">Java语言基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">Python网络爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">java语言基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E9%97%AE%E9%A2%98/" rel="tag">python问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91-%E7%88%AC%E8%99%AB/" rel="tag">数据开发 爬虫</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/Git%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">Git基础</a> <a href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 20px;">Java语言基础</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" style="font-size: 20px;">Python网络爬虫</a> <a href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">java语言基础</a> <a href="/tags/python%E9%97%AE%E9%A2%98/" style="font-size: 10px;">python问题</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91-%E7%88%AC%E8%99%AB/" style="font-size: 10px;">数据开发 爬虫</a>
-    </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2021/08/22/4%E6%9C%88-8%E6%9C%88-%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/">数据开发岗位实习经历</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">python-pycurl报错问题</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/21/Git-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git 使用方法</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/20/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/">Python基本语法回顾</a>
-          </li>
-        
-          <li>
-            <a href="/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">零基础使用hexo搭建博客</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      
-      &copy; 2021 John Doe<br>
-      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-
-<script src="/js/jquery-3.4.1.min.js"></script>
-
-
-
-  
-<script src="/fancybox/jquery.fancybox.min.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-
-
-
-  </div>
-</body>
-</html>
+    const detectApple = () => {
+      if (GLOBAL_CONFIG_SITE.isHome && /iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">20</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div></div></div><hr/></div></div><div class="page" id="body-wrap"><header class="full_page" id="page-header"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Hexo</a></span><div id="menus"><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="site-info"><h1 id="site-title">Hexo</h1></div><div id="scroll-down"><i class="fas fa-angle-down scroll-down-effects"></i></div></header><main class="layout" id="content-inner"><div class="recent-posts" id="recent-posts"><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/04/09/%E6%B3%A8%E8%A7%A3/" title="注解">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="注解"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/09/%E6%B3%A8%E8%A7%A3/" title="注解">注解</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-04-08T16:02:37.000Z" title="Created 2021-04-09 00:02:37">2021-04-09</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/04/09/%E5%8F%8D%E5%B0%84/" title="反射">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="反射"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/09/%E5%8F%8D%E5%B0%84/" title="反射">反射</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-04-08T16:02:23.000Z" title="Created 2021-04-09 00:02:23">2021-04-09</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/04/09/%E6%B3%9B%E5%9E%8B/" title="泛型">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="泛型"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/09/%E6%B3%9B%E5%9E%8B/" title="泛型">泛型</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-04-08T16:02:13.000Z" title="Created 2021-04-09 00:02:13">2021-04-09</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/04/09/%E5%AE%B9%E5%99%A8/" title="容器">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="容器"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/09/%E5%AE%B9%E5%99%A8/" title="容器">容器</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-04-08T16:01:59.000Z" title="Created 2021-04-09 00:01:59">2021-04-09</time></span></div><div class="content"></div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/04/08/hello-world/" title="Hello World">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/08/hello-world/" title="Hello World">Hello World</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-04-08T10:58:06.000Z" title="Created 2021-04-08 18:58:06">2021-04-08</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a></span></div><div class="content">Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new &quot;My New Post&quot;
+
+More info: Writing
+Run server1$ hexo server
+
+More info: Server
+Generate static files1$ hexo generate
+
+More info: Generating
+Deploy to remote sites1$ hexo deploy
+
+More info: Deployment
+</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/04/03/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" title="集合框架">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="集合框架"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/03/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" title="集合框架">集合框架</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-04-03T15:01:36.000Z" title="Created 2021-04-03 23:01:36">2021-04-03</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">集合集合在我们的日常开发中所使用的次数简直太多了，你已经把它们都用的熟透了，但是作为一名合格的程序员，你不仅要了解它的基本用法，你还要了解它的源码；存在即合理，你还要了解它是如何设计和实现的，你还要了解它的衍生过程。这篇博客就来详细介绍一下 Collection这个庞大集合框架的家族体系和成员，让你了解它的设计与实现。
+是时候祭出这张神图了
+
+爷爷辈接口——Iterator
+Iterable 接口12List&lt;Object&gt; list = new ArrayList();for(Object obj : list)&#123;&#125;
+
+除了实现此接口的对象外，数组也可以用for-each循环遍历：
+12Object[] list = new Object[10];for(Object obj : list)&#123;&#125;
+
+顶层接口Collection是一个顶层接口，主要用来定义集合的约定
+List接口也是一个顶层接口，继承了Collection，同时也是ArrayList、LinkedList等集合元素的父类
+Set接口与List接口同级别，也继承了Col ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/04/02/Java%E5%BC%82%E5%B8%B8/" title="Java异常(5)">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java异常(5)"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/02/Java%E5%BC%82%E5%B8%B8/" title="Java异常(5)">Java异常(5)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-04-02T06:35:58.000Z" title="Created 2021-04-02 14:35:58">2021-04-02</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">异常异常是程序经常会出现的，发现错误的最佳时机是在编译阶段，也就是你试图在运行程序之前。但是，在编译期间并不能找到所有的错误：
+ NullPointelrException和ClassNotFoundException 异常
+在编译期找不到，这些异常是RuntimeException运行时异常，这些异常往往在运行时才能被发现。
+Java程序经常会出现两种问题，java.lang.Exception和java.lang.Error都用来表示出现了异常情况：
+认识 ExceptionException位于java.lang包下，它是一种顶级接口，继承于Throwable类，Exception类及其子类都是Throwable的组成条件，是程序出现的合理情况。在认识 Exception之前，有必要先了解一下什么是Throwable。
+什么是ThrowableThrowable类是Java语言中所有错误（errors)和异常（exceptions)的父类。只有继承于Throwable 的类或者其子类才能够被抛出，还有一种方式是带有 Java 中的 @throw 注解的类也可以抛出。
+✨java规 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/04/01/Java%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB/" title="Java接口和抽象类(3)">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java接口和抽象类(3)"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/01/Java%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB/" title="Java接口和抽象类(3)">Java接口和抽象类(3)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-04-01T14:12:16.000Z" title="Created 2021-04-01 22:12:16">2021-04-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">关于Java接口和抽象类
+
+
+接口和抽象类接口（interface）接口相当于对外的约定和标准，操作系统产生的目的之一就是为了屏蔽软件的复杂性和硬件的简单性之间的差异，为软件提供统一的标准。
+用法：
+1public interface Apple&#123;&#125;
+
+接口的一些特性：   
+
+接口不能被实例化，所以接口中不能有任何构造方法，你定义构造方法编译会出错。
+interface接口是一个完全抽象的类，没有实现任何方法，只是定义了方法。
+接口中只能使用两种访问修饰符：public-对整个项目可见，default-只有包访问权限
+只提供方法的定义，不实现方法，需要其他类implements后自己实现
+接口的实现必须实现接口的全部方法，否则必须定义为抽象类
+一个借口可以被不同的类实现
+
+123456class Write implements GoodJob&#123;	@Override	public void write()&#123;		System.out.println(&quot;write write write&quot;);	&#125;&#125;
+
+抽象类 ...</div></div></div><div class="recent-post-item"><div class="post_cover left_radius"><a href="/2021/04/01/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="Java面向对象(2)">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java面向对象(2)"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/04/01/Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1/" title="Java面向对象(2)">Java面向对象(2)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-04-01T01:11:07.000Z" title="Created 2021-04-01 09:11:07">2021-04-01</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">关于 Java面向对象(2)
+
+
+面向对象
+java中，万事万物都是对象
+
+12345class ClassName&#123;	//body;&#125;ClassName cn = new ClassName();
+
+尽管一切都看作是对象，但是你操纵的却是一个对象的引用（reference)。在这里有一个很形象的比喻：你可以把车钥匙和车看作是一组对象引用和对象的组合。
+当你想要开车的时候，你首先需要拿出车钥匙点击开锁的选项，停车时，你需要点击加锁来锁车。车钥匙相当于就是引用，车就是对象，由车钥匙来驱动车的加锁和开锁。并且，即使没有车的存在，车钥匙也是一个独立存在的实体，也就是说，你有一个对象引用，但你不一定需要一个对象与之关联，也就是  
+1Car carkey;
+
+这里创建的只是引用，而并非对象，但是如果你想要使用这个引用时，会返回一个异常，告诉你需要一个对象来和这个引用进行关联。一种安全的做法是，在创建对象引用时同时把一个对象赋给它。  
+1Car carkey=new Car();
+在Java中，一旦创建了一个引用，就希望它能与一个新的对象进行关联，通常使用new操作符来实现 ...</div></div></div><div class="recent-post-item"><div class="post_cover right_radius"><a href="/2021/03/31/java%E5%9F%BA%E7%A1%80/" title="Java基础(1)">     <img class="post_bg" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Java基础(1)"></a></div><div class="recent-post-info"><a class="article-title" href="/2021/03/31/java%E5%9F%BA%E7%A1%80/" title="Java基础(1)">Java基础(1)</a><div class="article-meta-wrap"><span class="post-meta-date"><i class="far fa-calendar-alt"></i><span class="article-meta-label">Created</span><time datetime="2021-03-30T16:08:04.000Z" title="Created 2021-03-31 00:08:04">2021-03-31</time></span><span class="article-meta"><span class="article-meta__separator">|</span><i class="fas fa-inbox"></i><a class="article-meta__categories" href="/categories/Java/">Java</a></span></div><div class="content">对java的应用有了一些新想法，挑战3天回顾java语言基础
+😭清明节实在太累了 加多两天吧！
+
+
+数据类型
+四类八种  
+
+整数型：lisb：long、int、short、byte占用字节大小空间为long &gt; int &gt; short &gt; byte
+浮点型：float、double
+字符型：char
+布尔型：boolean
+
+
+
+数据类型
+内存
+默认值
+
+
+
+byte
+8bits
+0
+
+
+short
+16bits
+0
+
+
+int
+32bits
+0
+
+
+long
+64bits
+0L
+
+
+float
+32bits
+0.0f
+
+
+double
+64bits
+0.0d
+
+
+char
+16bits
+\u0000
+
+
+boolean
+8bits
+false
+
+
+
+类名应该首字母大写，包名应该尽量小写，方法名应该每个单词首字母大写  ֺ 
+例如MyFirstMethod()
+
+
+
+运算符
+加减乘除取余
+
+比较
+
+与或非
+
+
+
+
+按位运算符
+
+移位运算符
+
+三元运算符a？b:c
+
+
+语法
+if-else if-else  
+
+switch多分支语句
+123456789101112 ...</div></div></div><nav id="pagination"><div class="pagination"><a class="extend prev" rel="prev" href="/"><i class="fas fa-chevron-left fa-fw"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">John Doe</div><div class="author-info__description"></div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">20</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">Categories</div><div class="length-num">5</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/08/22/4%E6%9C%88-8%E6%9C%88-%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/" title="数据开发岗位实习经历"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="数据开发岗位实习经历"/></a><div class="content"><a class="title" href="/2021/08/22/4%E6%9C%88-8%E6%9C%88-%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/" title="数据开发岗位实习经历">数据开发岗位实习经历</a><time datetime="2021-08-21T16:44:57.000Z" title="Created 2021-08-22 00:44:57">2021-08-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" title="python-pycurl报错问题"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="python-pycurl报错问题"/></a><div class="content"><a class="title" href="/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" title="python-pycurl报错问题">python-pycurl报错问题</a><time datetime="2021-04-22T14:54:49.000Z" title="Created 2021-04-22 22:54:49">2021-04-22</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/21/Git-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Git 使用方法"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Git 使用方法"/></a><div class="content"><a class="title" href="/2021/04/21/Git-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" title="Git 使用方法">Git 使用方法</a><time datetime="2021-04-21T14:37:44.000Z" title="Created 2021-04-21 22:37:44">2021-04-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/20/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/" title="Python基本语法回顾"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Python基本语法回顾"/></a><div class="content"><a class="title" href="/2021/04/20/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/" title="Python基本语法回顾">Python基本语法回顾</a><time datetime="2021-04-20T09:16:56.000Z" title="Created 2021-04-20 17:16:56">2021-04-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="零基础使用hexo搭建博客"><img src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/img/default.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="零基础使用hexo搭建博客"/></a><div class="content"><a class="title" href="/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" title="零基础使用hexo搭建博客">零基础使用hexo搭建博客</a><time datetime="2021-04-14T03:54:00.000Z" title="Created 2021-04-14 11:54:00">2021-04-14</time></div></div></div></div><div class="card-widget card-categories"><div class="item-headline">
+            <i class="fas fa-folder-open"></i>
+            <span>Categories</span>
+            
+            </div>
+            <ul class="card-category-list" id="aside-cat-list">
+            <li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/"><span class="card-category-list-name">Git使用方法</span><span class="card-category-list-count">1</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Java/"><span class="card-category-list-name">Java</span><span class="card-category-list-count">5</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/Python/"><span class="card-category-list-name">Python</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/"><span class="card-category-list-name">搭建博客</span><span class="card-category-list-count">2</span></a></li><li class="card-category-list-item "><a class="card-category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/"><span class="card-category-list-name">网络爬虫</span><span class="card-category-list-count">4</span></a></li>
+            </ul></div><div class="card-widget card-tags"><div class="item-headline"><i class="fas fa-tags"></i><span>Tags</span></div><div class="card-tag-cloud"><a href="/tags/Git%E5%9F%BA%E7%A1%80/" style="font-size: 1.1em; color: #999">Git基础</a> <a href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 1.5em; color: #99a9bf">Java语言基础</a> <a href="/tags/Python/" style="font-size: 1.1em; color: #999">Python</a> <a href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" style="font-size: 1.5em; color: #99a9bf">Python网络爬虫</a> <a href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 1.1em; color: #999">java语言基础</a> <a href="/tags/python%E9%97%AE%E9%A2%98/" style="font-size: 1.1em; color: #999">python问题</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91-%E7%88%AC%E8%99%AB/" style="font-size: 1.1em; color: #999">数据开发 爬虫</a></div></div><div class="card-widget card-archives"><div class="item-headline"><i class="fas fa-archive"></i><span>Archives</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/08/"><span class="card-archive-list-date">August 2021</span><span class="card-archive-list-count">1</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/04/"><span class="card-archive-list-date">April 2021</span><span class="card-archive-list-count">18</span></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2021/03/"><span class="card-archive-list-date">March 2021</span><span class="card-archive-list-count">1</span></a></li></ul></div><div class="card-widget card-webinfo"><div class="item-headline"><i class="fas fa-chart-line"></i><span>Info</span></div><div class="webinfo"><div class="webinfo-item"><div class="item-name">Article :</div><div class="item-count">20</div></div><div class="webinfo-item"><div class="item-name">UV :</div><div class="item-count" id="busuanzi_value_site_uv"></div></div><div class="webinfo-item"><div class="item-name">PV :</div><div class="item-count" id="busuanzi_value_site_pv"></div></div><div class="webinfo-item"><div class="item-name">Last Push :</div><div class="item-count" id="last-push-date" data-lastPushDate="2021-09-22T04:33:02.964Z"></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By John Doe</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
