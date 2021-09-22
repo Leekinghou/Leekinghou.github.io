@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Java异常(5) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="异常异常是程序经常会出现的，发现错误的最佳时机是在编译阶段，也就是你试图在运行程序之前。但是，在编译期间并不能找到所有的错误：  NullPointelrException和ClassNotFoundException 异常 在编译期找不到，这些异常是RuntimeException运行时异常，这些异常往往在运行时才能被发现。 Java程序经常会出现两种问题，java.lang.Exception">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java异常(5)">
+<meta property="og:url" content="http://example.com/2021/04/02/Java%E5%BC%82%E5%B8%B8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="异常异常是程序经常会出现的，发现错误的最佳时机是在编译阶段，也就是你试图在运行程序之前。但是，在编译期间并不能找到所有的错误：  NullPointelrException和ClassNotFoundException 异常 在编译期找不到，这些异常是RuntimeException运行时异常，这些异常往往在运行时才能被发现。 Java程序经常会出现两种问题，java.lang.Exception">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13374153956/0">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13374158064/0">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13374159915/0">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13377012028/0">
+<meta property="article:published_time" content="2021-04-02T06:35:58.000Z">
+<meta property="article:modified_time" content="2021-04-08T16:09:43.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Java语言基础">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://inews.gtimg.com/newsapp_ls/0/13374153956/0">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Java异常" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/02/Java%E5%BC%82%E5%B8%B8/" class="article-date">
+  <time class="dt-published" datetime="2021-04-02T06:35:58.000Z" itemprop="datePublished">2021-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Java/">Java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Java异常(5)
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <h1 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h1><p>异常是程序经常会出现的，发现错误的最佳时机是在编译阶段，也就是你试图在运行程序之前。但是，在编译期间并不能找到所有的错误：</p>
+<p><code> NullPointelrException</code>和<code>ClassNotFoundException 异常</code></p>
+<p>在编译期找不到，这些异常是RuntimeException运行时异常，这些异常往往在运行时才能被发现。</p>
+<p>Java程序经常会出现两种问题，<code>java.lang.Exception和java.lang.Error</code>都用来表示出现了异常情况：</p>
+<h2 id="认识-Exception"><a href="#认识-Exception" class="headerlink" title="认识 Exception"></a>认识 Exception</h2><p><code>Exception</code>位于<code>java.lang</code>包下，它是一种顶级接口，继承于<code>Throwable</code>类，Exception类及其子类都是<code>Throwable</code>的组成条件，是程序出现的合理情况。<br>在认识 Exception之前，有必要先了解一下什么是Throwable。</p>
+<h2 id="什么是Throwable"><a href="#什么是Throwable" class="headerlink" title="什么是Throwable"></a>什么是Throwable</h2><p>Throwable类是Java语言中所有错误（errors)和异常（exceptions)的父类。只有继承于<br>Throwable 的类或者其子类才能够被抛出，还有一种方式是带有 Java 中的 <code>@throw </code>注解的类也可以<br>抛出。</p>
+<p>✨java规范中，对非受查异常和受查异常的定义是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">The unchecked exception classes are the run-time exception classes and the error classes</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The checked exception classes are all exception classes other than the unchecked exception</span><br><span class="line">classes. That is, the checked exception classes are Throwable and all its subclasses other</span><br><span class="line">than RuntimeException and its subclasses and Error and its subclasses.</span><br></pre></td></tr></table></figure>
+<ul>
+<li>也就是说，除了 RuntimeException和其子类，以及error和其子类，其它的所有异常都是checkedException</li>
+</ul>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13374153956/0" alt="Throwable及其子类"></p>
+<ul>
+<li>Throwable类中的方法和属性很多，只讨论其中几个比较常用的</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回抛出异常的详细信息</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> string <span class="title">getMessage</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> string <span class="title">getLocalizedMessage</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//返回异常发生时的简要描述</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>;</span><br><span class="line"><span class="comment">//打印异常信息到标准输出流上</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStackTrace</span><span class="params">()</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStackTrace</span><span class="params">(PrintStream s)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printStackTrace</span><span class="params">(PrintWriter s)</span></span></span><br><span class="line"><span class="function"><span class="comment">//记录栈帧的的当前状态</span></span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> Throwable <span class="title">fillInStackTrace</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>此外，因为Throwable的父类也是Object,所以常用的方法还有继承其父类的getCLass()和getName()方法。</li>
+</ul>
+<p>⚠️ 在参加面试时可能会遇到让你举出几个常见的异常并将其分类的问题<br>RuntimeException</p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13374158064/0" alt="RuntimeException"></p>
+<p>UncheckedException<br><img src="https://inews.gtimg.com/newsapp_ls/0/13374159915/0" alt="UncheckedException"></p>
+<p>在Java中是如何处理这些异常的呢？主要通过以下几个关键字：  </p>
+<h3 id="throws-throw"><a href="#throws-throw" class="headerlink" title="throws-throw"></a>throws-throw</h3><h3 id="try-catch-finally"><a href="#try-catch-finally" class="headerlink" title="try-catch-finally"></a>try-catch-finally</h3><p>在Java中，<code>异常也就是一个对象</code>，它能够被程序员自定义抛出或者应用程序抛出，必须借助于<code>throws和throw语句</code>来定义抛出异常。<br>throws和throw通常是成对出现的，例如:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cacheException</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">	<span class="keyword">throw</span> <span class="keyword">new</span> Exception();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>throw 语句用在方法体内，表示抛出异常，由方法体内的语句处理。throws 语句用在实现方法名后面，表示再抛出异常，由该方法的调用者来处理。</li>
+<li>throws主要是声明这个方法会抛出这种类型的异常，使它的调用者知道要捕获这个异常。throw是具体向外抛异常的动作，所以它是抛出一个异常实例。</li>
+</ul>
+<h3 id="try、finally、catch"><a href="#try、finally、catch" class="headerlink" title="try、finally、catch"></a>try、finally、catch</h3><p>这三个关键字主要有下面几种组合方式<code> try...catch</code>、<code>try...finally</code>、<code>try...catch...finally</code></p>
+<p><code>try...catch</code>表示对某一段代码可能抛出异常进行的捕获，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cacheException</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;1&quot;</span>);</span><br><span class="line">	&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">		e.printStackTrace();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>try...finally</code>表示对一段代码不管执行情况如何，都会走finally中的代码</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">cacheException</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &amp;lt; <span class="number">5</span>; i++)&#123;</span><br><span class="line">		System.out.println(<span class="string">&quot;enter:i=&quot;</span>+i);</span><br><span class="line">		<span class="keyword">try</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;execute:i=&quot;</span>+i);</span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">			System.out.println(<span class="string">&quot;leave:i=&quot;</span>+i);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>try...catch...finally</code> 也是一样的，表示对异常捕获后，再走 finally 中的代码逻辑</p>
+<h2 id="什么是Error"><a href="#什么是Error" class="headerlink" title="什么是Error"></a>什么是Error</h2><p>Error是程序无法处理的错误，表示运行应用程序中较严重问题。大多数错误与代码编写者执行的操作<br>无关，而表示代码运行时JVM(Java虚拟机）出现的问题。</p>
+<p>这些错误是不可检查的，因为它们在应用程序的控制和处理能力之外，而且绝大多数是程序运行时不允许出现的状况，比如<br><code>OutofMemoryError </code>和 <code>StackOverflowError</code> 异常的出现会有几种情况，这里需要先介绍一下Java内存模型JDK1.7</p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13377012028/0" alt="Java内存模型JDK1.7"></p>
+<p>其中包括两部分:<br>由所有<code>线程共享的数据区</code>和<code>线程隔离的数据区</code><br>在上面的Java内存模型中，只有<code>程序计数器</code>是不会发生 <code>OutOfMemoryError</code>情况的区域，程序计数器控制着计算机指令的分支、循环、跳转、异常处理和线程恢复，并且程序计数器是每个线程私有的</p>
+<p><code>什么是线程私有：表示的就是各条线程之间互不影响，独立存储的内存区</code></p>
+<p>如果应用程序执行的是Java方法，那么这个计数器记录的就是<code>虚拟机字节码</code>指令的地址；<br>如果正在执行的是Native方法，那么计数器值为空（Undefined）</p>
+<p>除了程序计数器外，其他区域：<code>方法区（Method Area)</code>、<code>虚拟机栈（VM Stack)</code>、<code>本地方法栈(Native Method Stack)</code>和<code>堆（Heap)</code>都是可能发生<code>OutOfMemoryError</code>的区域。</p>
+<ul>
+<li><p>虚拟机栈：如果线程请求的栈深度大于虚拟机栈所允许的深度，将会出现StackoverflowError 异常；如果虚拟机动态扩展无法申请到足够的内存，将出现OutOfMemoryError。</p>
+</li>
+<li><p>本地方法栈和虚拟机栈一样</p>
+<ul>
+<li>堆：Java堆可以处于物理上不连续，逻辑上连续，就像我们的磁盘空间一样，如果堆中没有内存完成实例分配，并且堆无法扩展时，将会抛出OutOfMemoryError。</li>
+<li>方法区：方法区无法满足内存分配需求时，将抛出OutOfMemoryError异常。</li>
+</ul>
+</li>
+<li><p>在Java中，你可以把异常理解为是一种能够提高你程序健壮性的机制，它能够让你在编写代码中注意这些问题，也可以说，如果你写代码不会注意这些异常情况，你是无法成为一位硬核程序员的。</p>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/02/Java%E5%BC%82%E5%B8%B8/" data-id="cktuzinrc0005d2oq7ii42v46" data-title="Java异常(5)" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">Java语言基础</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/04/03/%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          集合框架
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/01/Java%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%8A%BD%E8%B1%A1%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Java接口和抽象类(3)</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git使用方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%9F%BA%E7%A1%80/" rel="tag">Git基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">Java语言基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">Python网络爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">java语言基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E9%97%AE%E9%A2%98/" rel="tag">python问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91-%E7%88%AC%E8%99%AB/" rel="tag">数据开发 爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">Git基础</a> <a href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 20px;">Java语言基础</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" style="font-size: 20px;">Python网络爬虫</a> <a href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">java语言基础</a> <a href="/tags/python%E9%97%AE%E9%A2%98/" style="font-size: 10px;">python问题</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91-%E7%88%AC%E8%99%AB/" style="font-size: 10px;">数据开发 爬虫</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/08/22/4%E6%9C%88-8%E6%9C%88-%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/">数据开发岗位实习经历</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">python-pycurl报错问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/21/Git-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git 使用方法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/20/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/">Python基本语法回顾</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">零基础使用hexo搭建博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

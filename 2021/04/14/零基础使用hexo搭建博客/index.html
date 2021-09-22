@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>零基础使用hexo搭建博客 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="喂饭式教程零基础搭建博客">
+<meta property="og:type" content="article">
+<meta property="og:title" content="零基础使用hexo搭建博客">
+<meta property="og:url" content="http://example.com/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="喂饭式教程零基础搭建博客">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://ae05.alicdn.com/kf/Hb0e167339fb748bb92f58b58393309cc1.png">
+<meta property="og:image" content="https://ae03.alicdn.com/kf/Hed9b52ce82b24485b6fd7a33aadb18cdj.png">
+<meta property="og:image" content="https://ae05.alicdn.com/kf/Hfd6e4ca5227845d8b3946f129e3f381cB.png">
+<meta property="og:image" content="https://ae02.alicdn.com/kf/H884b2ff828d14999bccc4c2f5387a613K.png">
+<meta property="og:image" content="https://ae02.alicdn.com/kf/Hf3efc0504f314a1b9c92f292d55d0957v.png">
+<meta property="og:image" content="https://ae02.alicdn.com/kf/H618fe1610f3144e19fc427515255135fI.png">
+<meta property="og:image" content="https://ae05.alicdn.com/kf/Hc21ad29e72da49979ae876ccf8aee939h.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Hde8a82bdfdbb4c919af85e154478ac1b8.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H42dd3a3ce0ef4a50bbab46621e731a76l.png">
+<meta property="og:image" content="https://ae02.alicdn.com/kf/Hcda77cee362c4c76b8d2d758d6e9efea9.png">
+<meta property="og:image" content="https://ae03.alicdn.com/kf/Hc0166a94d8d946b583fbc33454acfd62I.png">
+<meta property="og:image" content="https://ae03.alicdn.com/kf/H842b0eef2a9142a69aba695b16c93e19h.png">
+<meta property="og:image" content="https://ae05.alicdn.com/kf/H084d43c2cc4648819b6ae9671cc925613.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/H79a2b2ddd0d7437fbaa58410dc7fe9d2y.png">
+<meta property="og:image" content="https://ae02.alicdn.com/kf/H31e7e3a92a434a50a5f100cf607277feh.png">
+<meta property="og:image" content="https://ae02.alicdn.com/kf/Hee9be8c89e66456b8cb2f9135bc5d9c2e.png">
+<meta property="og:image" content="https://ae05.alicdn.com/kf/H8e755a4e7fbf45d789ba784cab9eceecy.png">
+<meta property="og:image" content="https://ae04.alicdn.com/kf/Hb9ac50cb58e742f79a054a67be44cffcp.png">
+<meta property="og:image" content="https://ae02.alicdn.com/kf/H3c85b5e7a19240adb77ada9a71fc9af0v.png">
+<meta property="og:image" content="https://ae05.alicdn.com/kf/H4a119a5dcbef40639e8d892d8b16caaby.png">
+<meta property="og:image" content="https://ae03.alicdn.com/kf/H47be0afe250f498f871f945e81d581a2B.png">
+<meta property="og:image" content="https://ae04.alicdn.com/kf/H077713313fd240b6921e042aeb38d7afu.png">
+<meta property="og:image" content="https://ae01.alicdn.com/kf/Hf4f4178dfd494cbab20aae99a32edd7cD.png">
+<meta property="og:image" content="https://ae04.alicdn.com/kf/H18fa13d95708455695a785494f579678x.png">
+<meta property="article:published_time" content="2021-04-14T03:54:00.000Z">
+<meta property="article:modified_time" content="2021-04-14T03:54:00.000Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://ae05.alicdn.com/kf/Hb0e167339fb748bb92f58b58393309cc1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-零基础使用hexo搭建博客" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="article-date">
+  <time class="dt-published" datetime="2021-04-14T03:54:00.000Z" itemprop="datePublished">2021-04-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      零基础使用hexo搭建博客
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>喂饭式教程零基础搭建博客</p>
+<span id="more"></span>
+
+
+
+<ol>
+<li>使用hexo搭建个人博客需要以下环境：  </li>
+</ol>
+<ul>
+<li><p>nodejs 点击下载：<a target="_blank" rel="noopener" href="https://nodejs.org/en/">https://nodejs.org/en/</a></p>
+<ul>
+<li>验证安装是否成功：    </li>
+</ul>
+</li>
+</ul>
+<p><img src="https://ae05.alicdn.com/kf/Hb0e167339fb748bb92f58b58393309cc1.png" alt="image1.png"></p>
+<ul>
+<li>由于npm使用国外源，各类资源安装较慢，所以使用npm安装cnpm并使用国内源：<br><code>npm install -g cnpm --registry=https://registry.npm.taobao.org</code></li>
+</ul>
+<p><img src="https://ae03.alicdn.com/kf/Hed9b52ce82b24485b6fd7a33aadb18cdj.png" alt="image2.png"></p>
+<ol start="2">
+<li>新建空文件夹<strong>blog</strong>并<strong>使用hexo将其初始化</strong><br><code>mkdir blog</code>  </li>
+</ol>
+<ul>
+<li>切换到blog目录下使用hexo初始化:<br><code>cd blog/</code><br><code>sudo hexo init</code></li>
+</ul>
+<p><img src="https://ae05.alicdn.com/kf/Hfd6e4ca5227845d8b3946f129e3f381cB.png" alt="image3.png"></p>
+<ul>
+<li>查看blog目录下的文件可以看到hexo已经完成初始化：</li>
+</ul>
+<p><img src="https://ae02.alicdn.com/kf/H884b2ff828d14999bccc4c2f5387a613K.png" alt="image4.png"></p>
+<ol start="3">
+<li>在本地启动hexo博客<br><code>sudo hexo s</code> 或  <code>sudo hexo server</code></li>
+</ol>
+<p><img src="https://ae02.alicdn.com/kf/Hf3efc0504f314a1b9c92f292d55d0957v.png" alt="image5.png"></p>
+<ul>
+<li><p>博客部署在<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a>  </p>
+</li>
+<li><p>后期可以先发布文章在本地作为草稿，确定没有问题后再发布在服务器上  </p>
+</li>
+</ul>
+<p>⚠️注意，若出现了端口已被占用的情况，可以使用以下命令组合解除占用：<br>    - 方法一：<br><code>sudo lsof -i:port</code><br><code>sudo kill -9 PID</code><br>如：<br><a target="_blank" rel="noopener" href="https://ae02.alicdn.com/kf/H618fe1610f3144e19fc427515255135fI.png"><img src="https://ae02.alicdn.com/kf/H618fe1610f3144e19fc427515255135fI.png" alt="image6.png"></a><br>    - 方法二：<br>        - 更换默认端口<br><code>hexo s -p 5000</code></p>
+<ol start="4">
+<li>编写第一篇博客<br><code>hexo new “FileName”</code><br>如：<br><code>hexo new 零基础使用hexo搭建博客</code></li>
+</ol>
+<ul>
+<li>使用ls查看创建结果：<br><code>cd source/_posts</code><br><code>ls -l</code>  </li>
+</ul>
+<p><img src="https://ae05.alicdn.com/kf/Hc21ad29e72da49979ae876ccf8aee939h.png" alt="image7.png"></p>
+<p>⚠️注意，新建的md格式的文件可能出现权限不足无法编辑的问题，解决方法如下：<br>分别选择上层目录<code>_post</code>和新建的文件使用<code>command + i</code>命令：<br><img src="https://ae01.alicdn.com/kf/Hde8a82bdfdbb4c919af85e154478ac1b8.png" alt="image.png"><br>解除右下角🔒后，将everyone修改为读与写即可</p>
+<ol start="5">
+<li>发布文章  </li>
+</ol>
+<ul>
+<li>在blog目录下使用命令：<br><code>hexo generate</code>  </li>
+</ul>
+<p><img src="https://ae01.alicdn.com/kf/H42dd3a3ce0ef4a50bbab46621e731a76l.png" alt="image8.png"></p>
+<p>点击<a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可查看发布结果:</p>
+<p><img src="https://ae02.alicdn.com/kf/Hcda77cee362c4c76b8d2d758d6e9efea9.png" alt="image9.png"></p>
+<ol start="6">
+<li>部署博客到云服务器<br>借助github部署博客是完全免费的<ul>
+<li>打开github新建一个repository<br>注意repository name必须是以下格式：</li>
+<li>用户名.github.io<br>之后浏览器在地址栏输入以上内容就可以访问博客：</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://ae03.alicdn.com/kf/Hc0166a94d8d946b583fbc33454acfd62I.png" alt="image10.png"></p>
+<p>回到命令行在blog目录下安装一个git工具：  </p>
+<p><code>cnpm install --save hexo-deployer-git</code></p>
+<p><img src="https://ae03.alicdn.com/kf/H842b0eef2a9142a69aba695b16c93e19h.png" alt="image11.png"></p>
+<p>⚠️以下内容非常重要：</p>
+<ul>
+<li>配置_config.yml文件</li>
+</ul>
+<p><img src="https://ae05.alicdn.com/kf/H084d43c2cc4648819b6ae9671cc925613.png" alt="image12.png"></p>
+<p>使用命令<code>vim _config.yml</code>  拖到最下方，修改以下内容：  </p>
+<p>修改前：  </p>
+<p><img src="https://ae01.alicdn.com/kf/H79a2b2ddd0d7437fbaa58410dc7fe9d2y.png" alt="image13.png"><br>修改后：</p>
+<p><img src="https://ae02.alicdn.com/kf/H31e7e3a92a434a50a5f100cf607277feh.png" alt="image14.png"></p>
+<p>其中repo链接来自刚刚新创建的仓库：<br><img src="https://ae02.alicdn.com/kf/Hee9be8c89e66456b8cb2f9135bc5d9c2e.png" alt="image15.png"></p>
+<p>保存后退出</p>
+<ul>
+<li>在blog目录下使用以下命令：  </li>
+</ul>
+<p><code>hexo d</code> 或 <code>hexo deployer</code></p>
+<p><img src="https://ae05.alicdn.com/kf/H8e755a4e7fbf45d789ba784cab9eceecy.png" alt="image16.png"></p>
+<p>初次使用可能需要输入github的账号与密码，正确输入即可</p>
+<ol start="7">
+<li>查看博客  </li>
+</ol>
+<ul>
+<li>在github上我们可以看到博客的配置及代码已经提交成功</li>
+</ul>
+<p><img src="https://ae04.alicdn.com/kf/Hb9ac50cb58e742f79a054a67be44cffcp.png" alt="image17.png"></p>
+<ul>
+<li>在浏览器地址栏使用<code>用户名.github.io</code>访问博客<br>如：<br><a target="_blank" rel="noopener" href="https://leekinghou.github.io/">leekinghou.github.io</a></li>
+</ul>
+<p><img src="https://ae02.alicdn.com/kf/H3c85b5e7a19240adb77ada9a71fc9af0v.png" alt="image18.png"></p>
+<ol start="8">
+<li>更换主题  </li>
+</ol>
+<ul>
+<li>使用<code>git clone</code>将主题克隆到blog下的themes目录<br>如：<br><code>git clone https://github.com/litten/hexo-theme-yilia.git themes/yilia</code></li>
+</ul>
+<p><img src="https://ae05.alicdn.com/kf/H4a119a5dcbef40639e8d892d8b16caaby.png" alt="image19.png"></p>
+<ul>
+<li>进入themes目录可以查看到已经下载了主题文件  </li>
+</ul>
+<p><img src="https://ae03.alicdn.com/kf/H47be0afe250f498f871f945e81d581a2B.png" alt="image20.png"></p>
+<ul>
+<li>返回<code>blog</code>目录，再次修改<code>_config.yml</code>文件</li>
+</ul>
+<p>修改前：</p>
+<p><img src="https://ae04.alicdn.com/kf/H077713313fd240b6921e042aeb38d7afu.png" alt="image21.png"></p>
+<p>修改后：</p>
+<p><img src="https://ae01.alicdn.com/kf/Hf4f4178dfd494cbab20aae99a32edd7cD.png" alt="image22.png"></p>
+<p>通过命令<code>hexo d</code>将新配置推送到服务器端即可</p>
+<p><img src="https://ae04.alicdn.com/kf/H18fa13d95708455695a785494f579678x.png" alt="image23.png"></p>
+<ol start="9">
+<li>最后   </li>
+</ol>
+<p>有其他问题优先查看官方解决方案：<br><a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">https://hexo.io/docs/troubleshooting.html</a></p>
+<p>欢迎关注我的博客!<br><a target="_blank" rel="noopener" href="https://leekinghou.github.io/">https://leekinghou.github.io</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" data-id="cktuzinrl001fd2oqez0o9gz0" data-title="零基础使用hexo搭建博客" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/04/20/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Python基本语法回顾
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/10/Scrapy-Item-Pipeline%E7%94%A8%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Scrapy-Item Pipeline用法</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git使用方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%9F%BA%E7%A1%80/" rel="tag">Git基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">Java语言基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">Python网络爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">java语言基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E9%97%AE%E9%A2%98/" rel="tag">python问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91-%E7%88%AC%E8%99%AB/" rel="tag">数据开发 爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">Git基础</a> <a href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 20px;">Java语言基础</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" style="font-size: 20px;">Python网络爬虫</a> <a href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">java语言基础</a> <a href="/tags/python%E9%97%AE%E9%A2%98/" style="font-size: 10px;">python问题</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91-%E7%88%AC%E8%99%AB/" style="font-size: 10px;">数据开发 爬虫</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/08/22/4%E6%9C%88-8%E6%9C%88-%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/">数据开发岗位实习经历</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">python-pycurl报错问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/21/Git-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git 使用方法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/20/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/">Python基本语法回顾</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">零基础使用hexo搭建博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

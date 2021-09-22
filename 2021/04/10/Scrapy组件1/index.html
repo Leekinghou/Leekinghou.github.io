@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Scrapy组件（1） | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Scrapy提供的数据提取方法——Selector选择器，类似BeautifulSoup、pyquery以及正则表达式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrapy组件（1）">
+<meta property="og:url" content="http://example.com/2021/04/10/Scrapy%E7%BB%84%E4%BB%B61/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Scrapy提供的数据提取方法——Selector选择器，类似BeautifulSoup、pyquery以及正则表达式">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13394568550/0">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13394591969/0">
+<meta property="article:published_time" content="2021-04-10T05:43:51.000Z">
+<meta property="article:modified_time" content="2021-04-10T09:23:54.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Python网络爬虫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://inews.gtimg.com/newsapp_ls/0/13394568550/0">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Scrapy组件1" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/10/Scrapy%E7%BB%84%E4%BB%B61/" class="article-date">
+  <time class="dt-published" datetime="2021-04-10T05:43:51.000Z" itemprop="datePublished">2021-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Scrapy组件（1）
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Scrapy提供的数据提取方法——Selector选择器，类似BeautifulSoup、pyquery以及正则表达式</p>
+<span id="more"></span>
+
+<h1 id="Selector-使用方法"><a href="#Selector-使用方法" class="headerlink" title="Selector 使用方法"></a>Selector 使用方法</h1><h2 id="直接使用"><a href="#直接使用" class="headerlink" title="直接使用"></a>直接使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> scrapy <span class="keyword">import</span> Selector</span><br><span class="line"></span><br><span class="line">body = <span class="string">&#x27;&lt;html&gt;&lt;body&gt;&lt;head&gt;&lt;title&gt;Hello World&lt;/title&gt;&lt;/head&gt;&lt;/body&gt;&lt;html&gt;&#x27;</span></span><br><span class="line">selector = Selector(text=body)</span><br><span class="line">title = selector.xpath(<span class="string">&#x27;//title/text()&#x27;</span>).extract_first()</span><br><span class="line"><span class="built_in">print</span>(title)</span><br></pre></td></tr></table></figure>
+<h2 id="Scrapy-shell"><a href="#Scrapy-shell" class="headerlink" title="Scrapy shell"></a>Scrapy shell</h2><p>爬取官方文档：<a target="_blank" rel="noopener" href="https://doc.scrapy.org/en/latest/_static/selectors-sample1.html">https://doc.scrapy.org/en/latest/_static/selectors-sample1.html</a></p>
+<p>Selector使用时是与Scrapy结合使用的，如在Scrapy的回调函数中的参数response直接调用xpath()、css()提取数据，所以借助scrapy shell提取数据模拟scrapy请求的过程</p>
+<p><code>scrapy shell https://doc.scrapy.org/en/latest/_static/selectors-sample1.html</code></p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13394568550/0"><br>关注最后的一些可进行的操作：<br><img src="https://inews.gtimg.com/newsapp_ls/0/13394591969/0"><br>这个过程相当于Scrapy向URL发起了一次请求，然后传回一些可操作的变量，如request、response等</p>
+<h2 id="XPath-选择器"><a href="#XPath-选择器" class="headerlink" title="XPath 选择器"></a>XPath 选择器</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span> = <span class="string">&#x27;http://example.com/ /&gt;</span></span></span><br><span class="line"><span class="string"><span class="tag">&lt;title&gt;Example website&lt;/title&gt;</span></span></span><br><span class="line"><span class="string"><span class="tag">&lt;/head&gt;</span></span></span><br><span class="line"><span class="string"><span class="tag">&lt;body&gt;</span></span></span><br><span class="line"><span class="string"><span class="tag">&lt;div id=&#x27;</span><span class="attr">images</span>&#x27;&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;imge1.html&#x27;</span>&gt;</span>Name: My image 1 <span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#x27;image1_thumb.jpg&#x27;</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;imge2.html&#x27;</span>&gt;</span>Name: My image 2 <span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#x27;image2_thumb.jpg&#x27;</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;imge3.html&#x27;</span>&gt;</span>Name: My image 3 <span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#x27;image3_thumb.jpg&#x27;</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;imge4.html&#x27;</span>&gt;</span>Name: My image 4 <span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#x27;image4_thumb.jpg&#x27;</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&#x27;imge5.html&#x27;</span>&gt;</span>Name: My image 5 <span class="tag">&lt;<span class="name">br</span>/&gt;</span><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&#x27;image5_thumb.jpg&#x27;</span> /&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><code>&gt;&gt;&gt; result = response.selector.xpath(&#39;//a&#39;)</code></p>
+<p>从提取的结果(a节点)中再次提取img节点：</p>
+<p><code>&gt;&gt;&gt; result.xpath(&#39;./img&#39;)</code></p>
+<p>选择器的最前面加“.”，表示提取元素内部的数据，如果没有加点，则代表从根节点开始提取。此处我们用了./img的提取方式，则代表从a节点里提取，如果用//img,则还是从html节点中提取</p>
+<p>以上得到的是SelectorList类型的变量，是一个由Selector对象组成的列表。所以可以用<code>&gt;&gt;&gt; result[0]</code>单独索引某个元素</p>
+<p>但是以上得到的内容都是列表类型，都不是真正的文本内容，为了得到文本，还需要：<br><code>&gt;&gt;&gt; result.extract()</code></p>
+<p>搭配XPath()表达式，可以选取节点的内部文本和属性</p>
+<p><code>&gt;&gt;&gt; response.xpath(&#39;//a/text()&#39;).extract()</code></p>
+<p><code>&gt;&gt;&gt; response.xpath(&#39;//a/@href&#39;).extract()</code></p>
+<h2 id="CSS选择器"><a href="#CSS选择器" class="headerlink" title="CSS选择器"></a>CSS选择器</h2><ul>
+<li><h2 id="正则匹配"><a href="#正则匹配" class="headerlink" title="正则匹配"></a>正则匹配</h2></li>
+<li><h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2>Selector包括了两个常用的选择器和正则匹配，合理使用Selector可以提高数据提取效率。</li>
+</ul>
+<h1 id="Spider-用法"><a href="#Spider-用法" class="headerlink" title="Spider 用法"></a>Spider 用法</h1><p>Spider：配置抓取网站的链接、抓取逻辑、解析逻辑</p>
+<h2 id="运行流程"><a href="#运行流程" class="headerlink" title="运行流程"></a>运行流程</h2><ul>
+<li>Spider要做的就两件事情：  </li>
+</ul>
+<ol>
+<li>定义爬取网站的动作</li>
+<li>分歧爬取的内容</li>
+</ol>
+<ul>
+<li>爬取过程：</li>
+</ul>
+<ol>
+<li>Request初始的URL，并设置回调函数。当Request成功时，Response生成作为参数传递给该回调函数</li>
+<li>在回调函数内分析网页内容，返回结果由两种方式：<ul>
+<li>解析到的有效结果返回字典或Item对象,可以直接保存</li>
+<li>另一种是解析得到下一个链接，可以利用此链接构造Request并设置新的回调函数</li>
+</ul>
+</li>
+<li>如果返回的是字典或者Item对象，我们可以通过Feed Exports等组件将结果存入文件。如果设置了Pipeline的话，我们可以使用Pipeline处理并保存</li>
+<li>如果返回的是Request，那么执行后得到的Response会被传递到Request中定义的回调函数，再次分析生成Item</li>
+</ol>
+<p>以上几步循环往复，可以完成站点的爬取</p>
+<h2 id="Spider类"><a href="#Spider类" class="headerlink" title="Spider类"></a>Spider类</h2><ul>
+<li>name = ‘quotes’  # 爬虫的名字</li>
+<li>allowed_domains = [‘quotes.toscrape.com’] # 可选配置，不在此列的链接不会被跟进爬取</li>
+<li>start_urls = [‘<a target="_blank" rel="noopener" href="http://quotes.toscrape.com/&#39;]">http://quotes.toscrape.com/&#39;]</a> # 起始URL</li>
+<li>custom_settings =   # 是一个字典，专属于本Spider的配置，设置会覆盖全局设置，必须在初始化前更新，必须定义成类变量</li>
+<li>crawler =           # 是在pipeline.py的from_crawler() 方法设置的，代表的是本Spider类对应的Crawler对象，可以用来获取setting的信息</li>
+<li>settings 全局设定</li>
+<li>start_requests()用于生成初始请求，必须返回一个可迭代对象，默认使用Get方法。如果想使用Post方法，只需要重写这个方法，发送POST请求时使用FormRequest即可</li>
+<li>parse() 当Response没有指定回调函数时，本方法默认被调用，负责处理Response，处理返回结果，需要返回一个包含Request和Item的可迭代对象</li>
+<li>close() 释放资源</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/10/Scrapy%E7%BB%84%E4%BB%B61/" data-id="cktuzinrg000hd2oqd7ir87u5" data-title="Scrapy组件（1）" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">Python网络爬虫</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/04/10/Scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Scrapy中间件
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/09/Scrapy%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Scrapy框架的使用</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git使用方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%9F%BA%E7%A1%80/" rel="tag">Git基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">Java语言基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">Python网络爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">java语言基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E9%97%AE%E9%A2%98/" rel="tag">python问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91-%E7%88%AC%E8%99%AB/" rel="tag">数据开发 爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">Git基础</a> <a href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 20px;">Java语言基础</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" style="font-size: 20px;">Python网络爬虫</a> <a href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">java语言基础</a> <a href="/tags/python%E9%97%AE%E9%A2%98/" style="font-size: 10px;">python问题</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91-%E7%88%AC%E8%99%AB/" style="font-size: 10px;">数据开发 爬虫</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/08/22/4%E6%9C%88-8%E6%9C%88-%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/">数据开发岗位实习经历</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">python-pycurl报错问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/21/Git-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git 使用方法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/20/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/">Python基本语法回顾</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">零基础使用hexo搭建博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

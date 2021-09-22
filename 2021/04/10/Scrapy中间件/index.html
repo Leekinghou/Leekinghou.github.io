@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>Scrapy中间件 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Downloader Middleware和Spider Middleware">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Scrapy中间件">
+<meta property="og:url" content="http://example.com/2021/04/10/Scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Downloader Middleware和Spider Middleware">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13395246035/0">
+<meta property="article:published_time" content="2021-04-10T09:24:28.000Z">
+<meta property="article:modified_time" content="2021-04-20T09:24:27.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="Python网络爬虫">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://inews.gtimg.com/newsapp_ls/0/13395246035/0">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-Scrapy中间件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/10/Scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2021-04-10T09:24:28.000Z" itemprop="datePublished">2021-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      Scrapy中间件
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Downloader Middleware和Spider Middleware</p>
+<span id="more"></span>
+
+<h1 id="Downloader-Middleware-用法"><a href="#Downloader-Middleware-用法" class="headerlink" title="Downloader Middleware 用法"></a>Downloader Middleware 用法</h1><ul>
+<li>Downloader Middleware是处于Scrapy获得Request和Response之间的处理模块</li>
+</ul>
+<p>Scheduler从队列中拿出一个Request发给Downloader执行下载，这个过程会经过Downloader Middleware的处理。</p>
+<p>当Downloader将Request下载完成得到Response返回给Spider时会再次经过Downloader Middleware处理</p>
+<p>所以Downloader Middleware起作用的位置有两个：  </p>
+<ol>
+<li>在Scheduler调度出队列的Request发送给Downloader下载之前对其进行修改</li>
+<li>在下载后生成的Response发送给Spider之前对其进行修改</li>
+</ol>
+<p>作用：<br>修改User-Agent、处理重定向、设置代理、失败重试、设置Cookies等功能</p>
+<p>Scrapy提供了大量的Downloader Middleware</p>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13395246035/0"></p>
+<p>键值越小代表越靠近Scrapy引擎，键值越大代表越靠近Downloader，数字越小的Downloader Middleware调用优先级越高</p>
+<p>⚠️如果要添加自己定义的Downloader Middleware到项目里，不能直接修改上面这个<code>D0WNLOADER_MIDDLEWARES_BASE</code>,要修改Scrapy提供的另一个变量<code>D0WNLOADER_MIDDLEWARES</code>并禁用<code>D0WNLOADER_MIDDLEWARES_BASE</code>里的变量</p>
+<h2 id="核心方法"><a href="#核心方法" class="headerlink" title="核心方法"></a>核心方法</h2><p>Scrapy内置的Downloader Middleware为Scrapy提供了基础的功能，但在项目中我们往往需要单独定义Downloader Middleware。这个过程非常简单，只需要实现某几个方法即可。每个Downloader Middleware都定义了一个或多个方法的类，核心的方法有如下三个。</p>
+<p>middleware.py中的class TutorialDownloaderMiddleware的三个方法：</p>
+<ul>
+<li>process_request(request,spider)</li>
+<li>process_response(request,response,spider)</li>
+<li>process_exception(request,exception,spider)</li>
+</ul>
+<p>只需要实现至少一个方法，就可以定义一个Downloader Middleware</p>
+<ul>
+<li><p>process_request(request,spider)</p>
+</li>
+<li><p>process_response(request,response,spider)</p>
+</li>
+<li><p>process_exception(request,exception,spider)</p>
+</li>
+</ul>
+<h1 id="Spider-Middleware-用法"><a href="#Spider-Middleware-用法" class="headerlink" title="Spider Middleware 用法"></a>Spider Middleware 用法</h1><ul>
+<li>Spider Middleware是介入到Scrapy的Spider处理机制的框架</li>
+</ul>
+<h2 id="作用位置"><a href="#作用位置" class="headerlink" title="作用位置"></a>作用位置</h2><p>当Downloader生成Response之后，Response会被发送给Spider,在发送给Spider之前，Response会首先经过Spider Middleware处理，当Spider处理生成Item和Request之后，Item和Request还会经过Spider Middleware的处理。</p>
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>Spider Middleware有如下三个作用：</p>
+<ul>
+<li>在Downloader生成的Response发送给Spider之前，也就是在Response发送给Spider之前对Response进行处理。</li>
+<li>在Spider生成的Request发送给Scheduler之前，也就是在Request发送给Scheduler之前对Request进行处理。</li>
+<li>在Spider生成的Item发送给Item Pipeline之前，也就是在Item发送给Item Pipeline之前对Item进行处理。</li>
+</ul>
+<h2 id="使用说明"><a href="#使用说明" class="headerlink" title="使用说明"></a>使用说明</h2><p>Scrapy其实已经提供了许多Spider Middleware,它们被SPIDER_MIDDLEWARES_BASE这个变量所定义。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">SPIDER_MIDDLEWARES_BASE = </span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">&#x27;scrapy.spidermiddlewares.httperror.HttpErrorMiddlewareapos&#x27;</span>:<span class="number">50</span></span><br><span class="line">	<span class="string">&#x27;scrapy.spidermiddlewares.offsite.0ffsiteMiddleware&#x27;</span>:<span class="number">500</span>,</span><br><span class="line">	<span class="string">&#x27;scrapy.spidermiddlewares.referer.RefererMiddleware&#x27;</span>:<span class="number">700</span>,</span><br><span class="line">	<span class="string">&#x27;scrapy.spidermiddlewares.urllength.UrlLengthMiddleware&#x27;</span>:<span class="number">800</span>,</span><br><span class="line">	<span class="string">&#x27;scrapy.spidermiddlewares.depth.DepthMiddleware&#x27;</span>:<span class="number">900</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>和Downloader Middleware一样，Spider Middleware首先加入到SPIDER_MIDDLEWARES设置中，该设置会和Scrapy中SPIDER_MIDDLEWARES_BASE定义的Spider Middleware合并。然后根据键值的数字优先级排序，得到一个有序列表。第一个Middleware是最靠近引擎的，最后一个Middleware是最靠近Spider的。</p>
+<h2 id="核心方法-1"><a href="#核心方法-1" class="headerlink" title="核心方法"></a>核心方法</h2><p>Scrapy内置的Spider Middleware为Scrapy提供了基础的功能。如果我们想要扩展其功能，只需要实现某几个方法即可。<br>每个Spider Middleware都定义了以下一个或多个方法的类，核心方法有如下4个。</p>
+<ul>
+<li>process_spider_input(response,spider)。</li>
+<li>process_spider_output(response,result,spider)。</li>
+<li>process_spider_exception(response,exception,spider)。</li>
+<li>process_start_requests(start_requests,spider)。</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/10/Scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/" data-id="cktuzinri000qd2oqhj6304ax" data-title="Scrapy中间件" class="article-share-link">Share</a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">Python网络爬虫</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/04/10/Scrapy-Item-Pipeline%E7%94%A8%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Scrapy-Item Pipeline用法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/10/Scrapy%E7%BB%84%E4%BB%B61/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Scrapy组件（1）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Git%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git使用方法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python/">Python</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">搭建博客</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Git%E5%9F%BA%E7%A1%80/" rel="tag">Git基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">Java语言基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="tag">Python网络爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" rel="tag">java语言基础</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python%E9%97%AE%E9%A2%98/" rel="tag">python问题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91-%E7%88%AC%E8%99%AB/" rel="tag">数据开发 爬虫</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Git%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">Git基础</a> <a href="/tags/Java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 20px;">Java语言基础</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Python%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" style="font-size: 20px;">Python网络爬虫</a> <a href="/tags/java%E8%AF%AD%E8%A8%80%E5%9F%BA%E7%A1%80/" style="font-size: 10px;">java语言基础</a> <a href="/tags/python%E9%97%AE%E9%A2%98/" style="font-size: 10px;">python问题</a> <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BC%80%E5%8F%91-%E7%88%AC%E8%99%AB/" style="font-size: 10px;">数据开发 爬虫</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/04/">April 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/03/">March 2021</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2021/08/22/4%E6%9C%88-8%E6%9C%88-%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/">数据开发岗位实习经历</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">python-pycurl报错问题</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/21/Git-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git 使用方法</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/20/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/">Python基本语法回顾</a>
+          </li>
+        
+          <li>
+            <a href="/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">零基础使用hexo搭建博客</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2021 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>

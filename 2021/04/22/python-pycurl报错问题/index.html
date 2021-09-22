@@ -4,15 +4,22 @@
   <meta charset="utf-8">
   
   
-  <title>Archives: 2021 | Hexo</title>
+  <title>python-pycurl报错问题 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="ImportError: pycurl: libcurl link-time ssl backend (openssl) is different from compile-time ssl backend (none&#x2F;other)完美解决办法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python-pycurl报错问题">
+<meta property="og:url" content="http://example.com/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ImportError: pycurl: libcurl link-time ssl backend (openssl) is different from compile-time ssl backend (none&#x2F;other)完美解决办法">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://inews.gtimg.com/newsapp_ls/0/13443900198/0">
+<meta property="article:published_time" content="2021-04-22T14:54:49.000Z">
+<meta property="article:modified_time" content="2021-05-11T09:04:35.000Z">
 <meta property="article:author" content="John Doe">
+<meta property="article:tag" content="python问题">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://inews.gtimg.com/newsapp_ls/0/13443900198/0">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -69,216 +76,84 @@
 </header>
 
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/08/22/4%E6%9C%88-8%E6%9C%88-%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-08-21T16:44:57.000Z" itemprop="datePublished">Aug 22</time>
+        <section id="main"><article id="post-python-pycurl报错问题" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" class="article-date">
+  <time class="dt-published" datetime="2021-04-22T14:54:49.000Z" itemprop="datePublished">2021-04-22</time>
 </a>
-      
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/08/22/4%E6%9C%88-8%E6%9C%88-%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/">数据开发岗位实习经历</a>
+    <h1 class="p-name article-title" itemprop="headline name">
+      python-pycurl报错问题
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-04-22T14:54:49.000Z" itemprop="datePublished">Apr 22</time>
-</a>
+    <div class="e-content article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/">python-pycurl报错问题</a>
-    </h1>
-  
+        <p>ImportError: pycurl: libcurl link-time ssl backend (openssl) is different from compile-time ssl backend (none/other)完美解决办法</p>
+<span id="more"></span>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/04/21/Git-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-04-21T14:37:44.000Z" itemprop="datePublished">Apr 21</time>
-</a>
+<p><img src="https://inews.gtimg.com/newsapp_ls/0/13443900198/0"><br>解决办法：<br>命令行输入：<br>pip uninstall pycurl</p>
+<p>export CPPFLAGS=-I/usr/local/opt/openssl/include<br>export LDFLAGS=-L/usr/local/opt/openssl/lib</p>
+<p>pip install pycurl –global-option=”–with-openssl”</p>
+<p>同时还有overflow高赞方法：</p>
+<p>首先移除安装的pycurl</p>
+<blockquote>
+<p>pip uninstall pycurl</p>
+</blockquote>
+<p>然后</p>
+<blockquote>
+<p>export PYCURL_SSL_LIBRARY=openssl</p>
+</blockquote>
+<p>重新安装pycurl，并且必须带有参数表示无缓存的条件下 </p>
+<blockquote>
+<p>pip install pycurl –no-cache-dir</p>
+</blockquote>
+<p>我使用的是virtualenv虚拟环境。</p>
+
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/21/Git-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/">Git 使用方法</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/04/20/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-04-20T09:16:56.000Z" itemprop="datePublished">Apr 20</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2021/04/22/python-pycurl%E6%8A%A5%E9%94%99%E9%97%AE%E9%A2%98/" data-id="cktuzinrj000xd2oq6x0b8scq" data-title="python-pycurl报错问题" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/20/Python%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95%E5%9B%9E%E9%A1%BE/">Python基本语法回顾</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-04-14T03:54:00.000Z" itemprop="datePublished">Apr 14</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/14/%E9%9B%B6%E5%9F%BA%E7%A1%80%E4%BD%BF%E7%94%A8hexo%E6%90%AD%E5%BB%BA%E5%8D%9A%E5%AE%A2/">零基础使用hexo搭建博客</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/04/10/Scrapy-Item-Pipeline%E7%94%A8%E6%B3%95/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-04-10T14:09:01.000Z" itemprop="datePublished">Apr 10</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/10/Scrapy-Item-Pipeline%E7%94%A8%E6%B3%95/">Scrapy-Item Pipeline用法</a>
-    </h1>
-  
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python%E9%97%AE%E9%A2%98/" rel="tag">python问题</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2021/08/22/4%E6%9C%88-8%E6%9C%88-%E5%AD%A6%E4%B9%A0%E7%BB%8F%E5%8E%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          数据开发岗位实习经历
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2021/04/21/Git-%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Git 使用方法</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/04/10/Scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-04-10T09:24:28.000Z" itemprop="datePublished">Apr 10</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/10/Scrapy%E4%B8%AD%E9%97%B4%E4%BB%B6/">Scrapy中间件</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/04/10/Scrapy%E7%BB%84%E4%BB%B61/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-04-10T05:43:51.000Z" itemprop="datePublished">Apr 10</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/10/Scrapy%E7%BB%84%E4%BB%B61/">Scrapy组件（1）</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/04/09/Scrapy%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-04-09T06:33:15.000Z" itemprop="datePublished">Apr 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/09/Scrapy%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BD%BF%E7%94%A8/">Scrapy框架的使用</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2021/04/09/I-O%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/" class="archive-article-date">
-  <time class="dt-published" datetime="2021-04-08T16:02:58.000Z" itemprop="datePublished">Apr 9</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/04/09/I-O%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA/">I/O输入输出</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2021/page/2/">2</a><a class="extend next" rel="next" href="/archives/2021/page/2/">Next &raquo;</a>
-  </nav>
 
 </section>
         
